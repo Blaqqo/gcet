@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { Outlet } from "react-router-dom";
 
-function App() {
+import { createGlobalStyle } from "styled-components";
+
+import { ThemeContextWrapper } from "./contexts/theme";
+
+const BaseStyles = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a,
+  abbr {
+    text-decoration: none;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BaseStyles />
+      <ThemeContextWrapper>
+        <Outlet />
+      </ThemeContextWrapper>
     </div>
   );
 }
