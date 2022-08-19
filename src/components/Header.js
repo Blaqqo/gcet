@@ -31,6 +31,8 @@ const Navbar = styled.div`
     gap: 2.5em;
 
     .nav__menu {
+        display: none;
+
         flex: 1;
         max-width: 800px;
     }
@@ -49,6 +51,12 @@ const Navbar = styled.div`
         font-size: 1.125rem;
         font-weight: 600;
         padding: .625em .875em;
+    }
+
+    @media (min-width: 700px) {
+        .nav__menu {
+            display: block;
+        }
     }
 `;
 

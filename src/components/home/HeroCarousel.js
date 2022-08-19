@@ -47,6 +47,7 @@ const SwiperSC = styled(Swiper)`
 
     .hero__link-btns {
         display: flex;
+        flex-wrap: wrap;
         gap: 1em;
 
         margin: 2em 0;
@@ -56,6 +57,7 @@ const SwiperSC = styled(Swiper)`
         border-radius: .25em;
         font-size: 1.125rem;
         font-weight: 600;
+        display: block;
         padding: .625em .875em;
 
         &--consultancy {

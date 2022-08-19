@@ -191,13 +191,7 @@ const Request = styled.section`
         padding: 3em;
 
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
         gap: 1.5em 1em;
-    }
-
-    .form__input-wrapper:first-child,
-    .form__btn {
-        grid-column: 1 / -1;
     }
 
     .form__input-wrapper {
@@ -216,6 +210,7 @@ const Request = styled.section`
         border-radius: .25em;
         font-size: .875rem;
         padding: .5em 1em;
+        width: 100%;
     }
 
     .form__select {
@@ -264,7 +259,7 @@ const Request = styled.section`
 
         .request__text,
         .request__form {
-            flex: 1 1;
+            flex: 1;
         }
 
         .request__text {
@@ -272,7 +267,13 @@ const Request = styled.section`
         }
 
         .request__form {
+            grid-template-columns: repeat(2, 1fr);
             max-width: 550px;
+        }
+
+        .form__input-wrapper:first-child,
+        .form__btn {
+            grid-column: 1 / -1;
         }
     }
 `;
