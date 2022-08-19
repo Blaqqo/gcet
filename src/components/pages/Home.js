@@ -317,7 +317,7 @@ const Home = () => {
 
             <Main>
                 <Services>
-                    <div class='services__text'>
+                    <div className='services__text'>
                         <h2>What we do Differently</h2>
                         <p>
                             Global Concept Emerge Technologies Limited is a team of

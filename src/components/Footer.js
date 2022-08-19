@@ -43,7 +43,6 @@ const FooterTop = styled.div`
     text-align: center;
 
     > * {
-        /* border: 1px solid red; */
         flex: 250px;
     }
 
