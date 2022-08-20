@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import Header from '../home/Header';
+import Navbar from '../Navbar';
+import HeroCarousel from '../home/HeroCarousel';
 import Footer from '../Footer';
 
 import { convertHexToRgba } from '../../utils/convertHexToRgba';
 
+import useCloseMenu from '../../hooks/useCloseMenu';
 
 // Images
 import aboutGcetImage from '../../assets/images/home/about-gcet-img.jpg';
@@ -33,6 +35,19 @@ import fortinetLogo from '../../assets/images/partners/fortinet-logo.png';
 import BCInTheCloudLogo from '../../assets/images/partners/bc-in-the-cloud-logo.png';
 import alienVaultLogo from '../../assets/images/partners/alien-vault-logo.png';
 
+import heroBgLeft from '../../assets/images/home/hero-bg-left.svg';
+import heroBgRight from '../../assets/images/home/hero-bg-right.svg';
+
+const Header = styled.header`
+    background-image: url(${heroBgLeft}), url(${heroBgRight});
+    background-color: ${({ theme }) => theme.colors.mediumBlue};
+    background-repeat: no-repeat;
+    background-position: left bottom, right top;
+    color: ${({ theme }) => theme.colors.white};
+
+    min-height: 100vh;
+    padding: 2em 0;
+`;
 
 const Main = styled.main`
     color: ${({ theme }) => theme.colors.darkGray};
@@ -329,9 +344,14 @@ const Partners = styled.section`
 `;
 
 const Home = () => {
+    useCloseMenu();
+
     return (
         <>
-            <Header />
+            <Header>
+                <Navbar />
+                <HeroCarousel />
+            </Header>
 
             <Main>
                 <Services>

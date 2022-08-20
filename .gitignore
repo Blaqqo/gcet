@@ -24,3 +24,5 @@ yarn-error.log*
 
 
 README-react.md
+
+/.netlify

@@ -28,7 +28,7 @@ const Aside = styled.aside`
   height: 100%;
   overflow: scroll;
   position: fixed;
-  top: 0;
+  bottom: 0;
   right: 0;
   z-index: 5;
 
@@ -64,6 +64,7 @@ const Nav = styled.nav`
         }
         
         &__link {
+            color: ${({ theme }) => theme.colors.white};
             
             &--flex {
                 display: flex;
@@ -77,6 +78,10 @@ const Nav = styled.nav`
         &__subitem {
             font-size: 1rem;
             padding: .25em;
+        }
+
+        &__sublink {
+            color: ${({ theme }) => theme.colors.white};
         }
         
         &__link-btn {
@@ -108,12 +113,12 @@ const HamburgerMenu = () => {
                 <Nav>
                     <ul className='ham__list'>
                         <li className='ham__item'>
-                            <Link className='ham__link' to='/'>About</Link>
+                            <Link className='ham__link' to='/about'>About</Link>
                         </li>
                         <li className='ham__item'>
                             <details className='ham__details'>
                                 <summary className='ham__summary ham__link ham__link--flex'>
-                                    <FontAwesomeIcon icon='fa-solid fa-caret-right' />Solutions 
+                                    <FontAwesomeIcon icon='fa-solid fa-caret-right' />Solutions
                                 </summary>
                                 <ul className='ham__submenu' aria-label='submenu'>
                                     <li className='ham__subitem'><Link to='/' className='ham__sublink'>Enterprise Security Solutions &amp; Services (ESSS)</Link></li>
@@ -128,7 +133,7 @@ const HamburgerMenu = () => {
                         <li className='ham__item'>
                             <details className='ham__details'>
                                 <summary className='ham__summary ham__link ham__link--flex'>
-                                    <FontAwesomeIcon icon='fa-solid fa-caret-right' /> Services 
+                                    <FontAwesomeIcon icon='fa-solid fa-caret-right' /> Services
                                 </summary>
                                 <ul className='ham__submenu' aria-label='submenu'>
                                     <li className='ham__subitem'><Link to='/' className='ham__sublink'>IT Advisory and Managed Services</Link></li>

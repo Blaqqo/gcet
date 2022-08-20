@@ -39,6 +39,13 @@ const BaseStyles = createGlobalStyle`
     max-width: 100%;
     object-fit: cover;
   }
+
+
+  @media (max-width: 800px) {
+    html {
+      font-size: 14px;
+    }
+  }
 `;
 
 const App = () => {

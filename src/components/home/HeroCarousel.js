@@ -15,8 +15,8 @@ import heroImg2 from '../../assets/images/home/hero-img-2.png';
 import heroImg3 from '../../assets/images/home/hero-img-3.png';
 
 const SwiperSC = styled(Swiper)`
-    margin-top: 4em;
-    padding: 2em 0 3em;
+    margin: 4em 5% 0;
+    padding-bottom: 3em;
 
     .swiper {
 
@@ -119,7 +119,6 @@ const HeroCarousel = () => {
 
                             </li>
                             <li>
-
                                 <Link className='hero__link-btn hero__link-btn--call' to='/'>Quick Call Back</Link>
                             </li>
                         </menu>

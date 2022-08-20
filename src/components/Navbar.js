@@ -19,17 +19,16 @@ const Nav = styled.nav`
     gap: 2.5em;
     
     font-weight: 600;
-    margin: 1em 0;
+    padding: 0 5% 1em;
     position: relative;
     z-index: 10;
-
+    
     @media (max-width: 800px) {
         & {
             ${({ $isMenuOpen }) => $isMenuOpen && `
             position: fixed;
-            width: 100%;
-            top: 1em;
-            right: 5%;
+            top: 2em;
+            right: 0;
             `}
         }
 
@@ -76,6 +75,7 @@ const Nav = styled.nav`
         }
 
         &__link {
+            color: ${({ theme }) => theme.colors.white};
 
             &--flex {
                 display: flex;
@@ -142,11 +142,11 @@ const Navbar = () => {
 
             <div className="nav__menu">
                 <ul className="nav__list">
-                    <li className='nav__item'><Link className='nav__link' to='/'>About</Link></li>
+                    <li className='nav__item'><Link className='nav__link' to='/about'>About</Link></li>
                     <li className='nav__item'>
-                        <Link className='nav__link nav__link--flex' to='/' aria-haspopup={true}>Solutions
+                        <span className='nav__link nav__link--flex' aria-haspopup={true}>Solutions
                             <FontAwesomeIcon icon='fa-solid fa-chevron-down' />
-                        </Link>
+                        </span>
 
                         <ul className="nav__submenu" aria-label='submenu'>
                             <li className='nav__subitem'><Link to='/' className='nav__sublink'>Enterprise Security Solutions &amp; Services (ESSS)</Link></li>
@@ -157,9 +157,9 @@ const Navbar = () => {
                         </ul>
                     </li>
                     <li className='nav__item'>
-                        <Link className='nav__link nav__link--flex' to='/' aria-haspopup={true}>Services
+                        <span className='nav__link nav__link--flex' aria-haspopup={true}>Services
                             <FontAwesomeIcon icon='fa-solid fa-chevron-down' />
-                        </Link>
+                        </span>
                         <ul className="nav__submenu" aria-label='submenu'>
                             <li className='nav__subitem'><Link to='/' className='nav__sublink'>IT Advisory and Managed Services</Link></li>
                             <li className='nav__subitem'><Link to='/' className='nav__sublink'>Network Assessment Services</Link></li>
