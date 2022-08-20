@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import Header from '../Header';
+import Header from '../home/Header';
 import Footer from '../Footer';
 
 import { convertHexToRgba } from '../../utils/convertHexToRgba';
@@ -49,31 +49,34 @@ const Main = styled.main`
 `;
 
 const Services = styled.section`
-    margin: 3em 5%;
+    margin: 6em 5%;
 
-    .services__text {
-        line-height: 1.5;
-        margin: 0 auto;
-        max-width: 800px;
-    }
-    
-    .services__link {
-        background: ${({ theme }) => theme.colors.lightBlue};
-        color: ${({ theme }) => theme.colors.white};
-        border-radius: .25em;
-        display: block;
-        font-weight: 700;
-        margin: 2em auto;
-        padding: .625em .875em;
-        width: fit-content;
-    }
-    
-    @media (min-width: 700px) {
-        .services__text {
-            text-align: center;
+    .services {
+        
+        &__text {
+            line-height: 1.5;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        
+        &__link {
+            background: ${({ theme }) => theme.colors.lightBlue};
+            color: ${({ theme }) => theme.colors.white};
+            border-radius: .25em;
+            display: block;
+            font-weight: 700;
+            margin: 2em auto;
+            padding: .625em .875em;
+            width: fit-content;
+        }
+        
+        @media (min-width: 700px) {
+            &__text {
+                text-align: center;
+            }
         }
     }
-`;
+    `;
 
 const About = styled.section`
     background: url(${aboutGcetBg}) no-repeat;
@@ -85,45 +88,49 @@ const About = styled.section`
         margin: 1em 0;
     }
     
-    .about__fig {
-        display: flex;
-        flex-direction: column;
-        gap: calc(2em + 7.5vw);
-    }
+    .about {
 
-    .about__img {
-        border-radius: 6.25em;
-    }
-
-    .about__link {
-        background: ${({ theme }) => theme.colors.white};
-        color: ${({ theme }) => theme.colors.lightBlue};
-        border-radius: .25em;
-        display: block;
-        font-weight: 700;
-        margin: 2em 0;
-        padding: .625em .875em;
-        width: fit-content;
-    }
-
-    @media (min-width: 700px) {
-        .about__fig {
-            flex-direction: row;
-            align-items: center;
+        &__fig {
+            display: flex;
+            flex-direction: column;
+            gap: calc(2em + 7.5vw);
         }
 
-        .about__figc,
-        .about__img-c {
-            flex: 400px;
+        &__img {
+            border-radius: 6.25em;
         }
 
-        .about__figc {
-            max-width: 600px;
+        &__link {
+            background: ${({ theme }) => theme.colors.white};
+            color: ${({ theme }) => theme.colors.lightBlue};
+            border-radius: .25em;
+            display: block;
+            font-weight: 700;
+            margin: 2em 0;
+            padding: .625em .875em;
+            width: fit-content;
         }
 
-        .about__img-c {
-            max-width: fit-content;
+        @media (min-width: 700px) {
+            &__fig {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            &__figc,
+            &__img-c {
+                flex: 400px;
+            }
+
+            &__figc {
+                max-width: 600px;
+            }
+
+            &__img-c {
+                max-width: fit-content;
+            }
         }
+
     }
     
     @media (min-width: 1100px) {
@@ -137,41 +144,44 @@ const Experience = styled.section`
     color: ${({ theme }) => convertHexToRgba(theme.colors.darkGray, .9)};
     margin: 5em 5%;
 
-    .experience__heading {
-        margin: .5em 0;
-    }
-    
-    .experience__fig {
-        display: flex;
-        flex-direction: column;
-        column-gap: calc(2em + 5vw);
-    }
-    
-    .experience__img-c {
-        max-width: 610px;
-    }
-    
-    .experience__figc {
-        max-width: 500px;
-    }
-
-    .experience__br {
-        display: none;
-    }
-    
-    @media (min-width: 700px) {
-        .experience__fig {
-            flex-direction: row;
-            align-items: center;
+    .experience {
+        
+        &__heading {
+            margin: .5em 0;
+        }
+        
+        &__fig {
+            display: flex;
+            flex-direction: column;
+            column-gap: calc(2em + 5vw);
+        }
+        
+        &__img-c {
+            max-width: 610px;
+        }
+        
+        &__figc {
+            max-width: 500px;
         }
 
-        .experience__img-c,
-        .experience__figc {
-            flex: 1;
+        &__br {
+            display: none;
         }
+        
+        @media (min-width: 700px) {
+            &__fig {
+                flex-direction: row;
+                align-items: center;
+            }
 
-        .experience__br {
-            display: block;
+            &__img-c,
+            &__figc {
+                flex: 1;
+            }
+
+            &__br {
+                display: block;
+            }
         }
     }
 `;
@@ -211,6 +221,10 @@ const Request = styled.section`
         font-size: .875rem;
         padding: .5em 1em;
         width: 100%;
+        
+        &:focus {
+            outline: 2px solid ${({ theme }) => theme.colors.darkGray};
+        }
     }
 
     .form__select {
@@ -276,38 +290,41 @@ const Request = styled.section`
             grid-column: 1 / -1;
         }
     }
-`;
+    `;
 
 const Partners = styled.section`
     margin: 5em 5% 10em;
-
-    .partners__heading {
-        text-align: center;
-    }
     
-    .partners__grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-        grid-auto-rows: 1fr;
-        gap: 2em;
+    .partners {
+        &__heading {
+            text-align: center;
+        }
         
-        margin-top: 3em;
-    }
+        &__logos {
+   
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: center;
+            gap: 2em;
+            
+            margin-top: 3em;
 
-    .partners__img-c {
-        border-radius: .625em;
-        box-shadow: 0px 4px 4px rgba(3, 169, 244, 0.11);
-
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
+        }
         
-        display: grid;
-        place-items: center;
-    }
-    
-    .partners__img {
+        &__logo-c {
+            border-radius: .625em;
+            box-shadow: 0px 4px 4px rgba(3, 169, 244, 0.11);
+            flex: 145px;
+            max-width: 160px;
 
+            min-height: 100px;
+            overflow: hidden;
+            padding: .5em 0;
+            
+            display: grid;
+            place-items: center;
+        }
     }
 `;
 
@@ -451,25 +468,25 @@ const Home = () => {
                         <figcaption>
                             <h2 className="partners__heading">Our Partners</h2>
                         </figcaption>
-                        <div className='partners__grid'>
-                            <div className='partners__img-c'><img className='partners__img' src={HPLogo} alt="HP logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={dellLogo} alt="Dell logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={nimbleStorageLogo} alt="Nimble Storage logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={netAppLogo} alt="NetApp logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={veeamLogo} alt="Veeam logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={barracudaLogo} alt="Barracudalogo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={coreViewLogo} alt="CoreView logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={commVaultLogo} alt="CommVault logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={VMWareLogo} alt="VMWare logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={ciscoLogo} alt="Cisco logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={sophosLogo} alt="Sophos logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={f5Logo} alt="f5 logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={microsoftLogo} alt="Microsoft logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={trendMicroLogo} alt="Trend Micro logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={forescoutLogo} alt="Forescout logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={fortinetLogo} alt="Fortinet logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={BCInTheCloudLogo} alt="BC in the Cloud logo" /></div>
-                            <div className='partners__img-c'><img className='partners__img' src={alienVaultLogo} alt="AlienVault logo" /></div>
+                        <div className='partners__logos'>
+                            <div className='partners__logo-c'><img className='partners__logo' src={HPLogo} alt="HP logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={dellLogo} alt="Dell logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={nimbleStorageLogo} alt="Nimble Storage logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={netAppLogo} alt="NetApp logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={veeamLogo} alt="Veeam logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={barracudaLogo} alt="Barracudalogo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={coreViewLogo} alt="CoreView logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={commVaultLogo} alt="CommVault logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={VMWareLogo} alt="VMWare logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={ciscoLogo} alt="Cisco logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={sophosLogo} alt="Sophos logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={f5Logo} alt="f5 logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={microsoftLogo} alt="Microsoft logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={trendMicroLogo} alt="Trend Micro logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={forescoutLogo} alt="Forescout logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={fortinetLogo} alt="Fortinet logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={BCInTheCloudLogo} alt="BC in the Cloud logo" /></div>
+                            <div className='partners__logo-c'><img className='partners__logo' src={alienVaultLogo} alt="AlienVault logo" /></div>
                         </div>
                     </figure>
                 </Partners>

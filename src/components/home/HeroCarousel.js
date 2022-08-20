@@ -10,82 +10,89 @@ import 'swiper/css/pagination';
 
 import { convertHexToRgba } from "../../utils/convertHexToRgba";
 
-import heroImg1 from '../../assets/images/home/hero-img-1.jpg';
-import heroImg2 from '../../assets/images/home/hero-img-2.jpg';
-import heroImg3 from '../../assets/images/home/hero-img-3.jpg';
+import heroImg1 from '../../assets/images/home/hero-img-1.png';
+import heroImg2 from '../../assets/images/home/hero-img-2.png';
+import heroImg3 from '../../assets/images/home/hero-img-3.png';
 
 const SwiperSC = styled(Swiper)`
     margin-top: 4em;
+    padding: 2em 0 3em;
 
-    .swiper-pagination-bullet {
-        background: ${({ theme }) => convertHexToRgba(theme.colors.white, .5)};
-    }
+    .swiper {
 
-    .swiper-pagination-bullet-active {
-        background: ${({ theme }) => theme.colors.white};
-    }
-
-    /* .hero__slide {
-        border: 1px solid red;
-    } */
-
-    .hero__fig {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .hero__heading {
-        font-size: 2.75rem;
-        font-weight: 800;
-        margin: .25em 0;
-    }
-
-    .hero__p {
-        font-size: 1.125rem;
-        line-height: 1.5625;
-    }
-
-    .hero__link-btns {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-
-        margin: 2em 0;
-    }
-
-    .hero__link-btn {
-        border-radius: .25em;
-        font-size: 1.125rem;
-        font-weight: 600;
-        display: block;
-        padding: .625em .875em;
-
-        &--consultancy {
-            background: ${({ theme }) => theme.colors.lightBlue};
-            color: ${({ theme }) => theme.colors.white};
+        &-pagination {
+            bottom: 15px;
         }
 
-        &--call {
+        &-pagination-bullet {
+            background: ${({ theme }) => convertHexToRgba(theme.colors.white, .5)};
+        }
+        
+        &-pagination-bullet-active {
             background: ${({ theme }) => theme.colors.white};
-            color: ${({ theme }) => theme.colors.lightBlue};
         }
     }
 
-    @media (min-width: 700px) {
-        .hero__fig {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
+    .hero {
+        &__fig {
+            display: flex;
+            flex-direction: column;
             gap: 2em;
         }
 
-        .hero__figc,
-        .hero__img-c {
-            flex: 300px;
-            max-width: 600px;
+        &__heading {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin: .25em 0;
+        }
+
+        &__p {
+            font-size: 1.125rem;
+            line-height: 1.5625;
+        }
+
+        &__link-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+
+            margin: 2em 0;
+        }
+        
+        &__link-btn {
+            border-radius: .25em;
+            font-size: 1.125rem;
+            font-weight: 600;
+            display: block;
+            padding: .625em .875em;
+            
+            &--consultancy {
+                background: ${({ theme }) => theme.colors.lightBlue};
+                color: ${({ theme }) => theme.colors.white};
+            }
+
+            &--call {
+                background: ${({ theme }) => theme.colors.white};
+                color: ${({ theme }) => theme.colors.lightBlue};
+            }
+        }
+
+        @media (min-width: 800px) {
+            &__fig {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2em;
+            }
+
+            &__figc,
+            &__img-c {
+                flex: 300px;
+                max-width: 600px;
+            }
         }
     }
-`;
+    `;
 
 const HeroCarousel = () => {
     return (
@@ -157,10 +164,8 @@ const HeroCarousel = () => {
                         <menu className="hero__link-btns">
                             <li>
                                 <Link className='hero__link-btn hero__link-btn--consultancy' to='/'>Get Consultancy</Link>
-
                             </li>
                             <li>
-
                                 <Link className='hero__link-btn hero__link-btn--call' to='/'>Quick Call Back</Link>
                             </li>
                         </menu>

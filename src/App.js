@@ -2,7 +2,15 @@ import { Outlet } from "react-router-dom";
 
 import { createGlobalStyle } from "styled-components";
 
+import { AppContextWrapper } from "./contexts/app";
 import { ThemeContextWrapper } from "./contexts/theme";
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faCartShopping, faPhone, faChevronDown, faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+
+
+library.add(faCartShopping, faPhone, faEnvelope, faChevronDown, faCaretRight, faCaretDown);
 
 const BaseStyles = createGlobalStyle`
   * {
@@ -37,9 +45,11 @@ const App = () => {
   return (
     <div>
       <BaseStyles />
-      <ThemeContextWrapper>
-        <Outlet />
-      </ThemeContextWrapper>
+      <AppContextWrapper>
+        <ThemeContextWrapper>
+          <Outlet />
+        </ThemeContextWrapper>
+      </AppContextWrapper>
     </div>
   );
 }
