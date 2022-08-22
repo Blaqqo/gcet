@@ -1,52 +1,52 @@
-import { Link } from 'react-router-dom';
-
 import styled from 'styled-components';
 
-import Navbar from '../Navbar';
-import HeroCarousel from '../home/HeroCarousel';
-import Footer from '../Footer';
+import Navbar from '../../Navbar';
+import Footer from '../../Footer';
 
-import { convertHexToRgba } from '../../utils/convertHexToRgba';
+import { convertHexToRgba } from '../../../utils/convertHexToRgba';
 
-import useCloseMenu from '../../hooks/useCloseMenu';
+import useCloseMenu from '../../../hooks/useCloseMenu';
 
-// Images
-import aboutGcetImage from '../../assets/images/home/about-gcet-img.jpg';
-import aboutGcetBg from '../../assets/images/home/about-gcet-bg.jpg';
-import provenExperienceImage from '../../assets/images/home/proven-experience-img.jpg';
+import NetworkAssessmentHeroBg from '../../../assets/images/services/network-assessment-hero-bg.jpg';
+import NetworkAssessmentOverview from '../../../assets/images/services/network-assessment-overview.jpg';
 
 // Partners' logo
-import HPLogo from '../../assets/images/partners/hp.png';
-import dellLogo from '../../assets/images/partners/dell.png';
-import nimbleStorageLogo from '../../assets/images/partners/nimble-storage.png';
-import netAppLogo from '../../assets/images/partners/netapp.png';
-import veeamLogo from '../../assets/images/partners/veeam.png';
-import barracudaLogo from '../../assets/images/partners/barracuda.png';
-import coreViewLogo from '../../assets/images/partners/coreview.png';
-import commVaultLogo from '../../assets/images/partners/commvault.png';
-import VMWareLogo from '../../assets/images/partners/vmware.png';
-import ciscoLogo from '../../assets/images/partners/cisco.png';
-import sophosLogo from '../../assets/images/partners/sophos.png';
-import f5Logo from '../../assets/images/partners/f5.png';
-import microsoftLogo from '../../assets/images/partners/microsoft.png';
-import trendMicroLogo from '../../assets/images/partners/trend-micro.png';
-import forescoutLogo from '../../assets/images/partners/forescout.png';
-import fortinetLogo from '../../assets/images/partners/fortinet.png';
-import BCInTheCloudLogo from '../../assets/images/partners/bc-in-the-cloud.png';
-import alienVaultLogo from '../../assets/images/partners/alien-vault.png';
-
-import heroBgLeft from '../../assets/images/home/hero-bg-left.svg';
-import heroBgRight from '../../assets/images/home/hero-bg-right.svg';
+import HPLogo from '../../../assets/images/partners/hp.png';
+import dellLogo from '../../../assets/images/partners/dell.png';
+import nimbleStorageLogo from '../../../assets/images/partners/nimble-storage.png';
+import netAppLogo from '../../../assets/images/partners/netapp.png';
+import veeamLogo from '../../../assets/images/partners/veeam.png';
+import barracudaLogo from '../../../assets/images/partners/barracuda.png';
+import coreViewLogo from '../../../assets/images/partners/coreview.png';
+import commVaultLogo from '../../../assets/images/partners/commvault.png';
+import VMWareLogo from '../../../assets/images/partners/vmware.png';
+import ciscoLogo from '../../../assets/images/partners/cisco.png';
+import sophosLogo from '../../../assets/images/partners/sophos.png';
+import f5Logo from '../../../assets/images/partners/f5.png';
+import microsoftLogo from '../../../assets/images/partners/microsoft.png';
+import trendMicroLogo from '../../../assets/images/partners/trend-micro.png';
+import forescoutLogo from '../../../assets/images/partners/forescout.png';
+import fortinetLogo from '../../../assets/images/partners/fortinet.png';
+import BCInTheCloudLogo from '../../../assets/images/partners/bc-in-the-cloud.png';
+import alienVaultLogo from '../../../assets/images/partners/alien-vault.png';
 
 const Header = styled.header`
-    background-image: url(${heroBgLeft}), url(${heroBgRight});
-    background-color: ${({ theme }) => theme.colors.mediumBlue};
+    background-image: url(${NetworkAssessmentHeroBg}), linear-gradient(${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)});
     background-repeat: no-repeat;
-    background-position: left bottom, right top;
+    background-size: cover;
+    background-blend-mode: multiply;
     color: ${({ theme }) => theme.colors.white};
 
-    min-height: 100vh;
+    min-height: min(100vh, 520px);
     padding: 2em 5%;
+
+    display: grid;
+    align-items: start;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
 
     @media (min-width: 1100px) {
       & {
@@ -70,145 +70,59 @@ const Main = styled.main`
     }
 `;
 
-const Services = styled.section`
-    margin: 6em 5%;
+const Overview = styled.section`
+  margin: 3em 5%;
 
-    .services__text {
-        line-height: 1.5;
-        margin: 0 auto;
-        max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 2em calc(2em + 5vw);
+
+  .overview__heading {
+    border-top: 1.2px solid currentColor;
+
+    color: ${({ theme }) => theme.colors.mediumBlue};
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5em;
+    padding-top: .25em;
+  }
+
+  .overview__right {
+    line-height: 2;
+
+    > * {
+      margin: 1.5em 0;
+    }
+  }
+
+  .overview__list {
+    list-style: disc inside;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  @media (min-width: 800px) {
+    & {
+      flex-direction: row;
     }
     
-    .services__link {
-        background: ${({ theme }) => theme.colors.lightBlue};
-        color: ${({ theme }) => theme.colors.white};
-        border-radius: .25em;
-        display: block;
-        font-weight: 700;
-        margin: 2em auto;
-        padding: .625em .875em;
-        width: fit-content;
-    }
-    
-    @media (min-width: 700px) {
-        .services__text {
-            text-align: center;
-        }
+    .overview__left,
+    .overview__right {
+      flex: 1;
     }
 
-    @media (min-width: 1100px) {
-      & {
-        margin-left: 120px;
-        margin-right: 120px;
-      }
-    }
-`;
-
-const About = styled.section`
-    background: url(${aboutGcetBg}) no-repeat;
-    background-size: cover;
-    color: ${({ theme }) => theme.colors.white};
-    padding: 3em 5%;
-
-    p {
-        margin: 1em 0;
-    }
-    
-    .about__fig {
-        display: flex;
-        flex-direction: column;
-        gap: calc(2em + 7.5vw);
+    .overview__left {
+      max-width: 440px;
     }
 
-    .about__img {
-        border-radius: 6.25em;
+    .overview__right {
+      max-width: 700px;
     }
+  }
 
-    .about__link {
-        background: ${({ theme }) => theme.colors.white};
-        color: ${({ theme }) => theme.colors.lightBlue};
-        border-radius: .25em;
-        display: block;
-        font-weight: 700;
-        margin: 2em 0;
-        padding: .625em .875em;
-        width: fit-content;
-    }
-
-    @media (min-width: 700px) {
-        .about__fig {
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .about__figc,
-        .about__img-c {
-            flex: 400px;
-        }
-
-        .about__figc {
-            max-width: 600px;
-        }
-
-        .about__img-c {
-            max-width: fit-content;
-        }
-    }
-
-    
-    @media (min-width: 1100px) {
-        & {
-            background-size: contain;
-
-            padding-left: 120px;
-            padding-right: 120px;
-        }
-    }
-`;
-
-const Experience = styled.section`
-    color: ${({ theme }) => convertHexToRgba(theme.colors.darkGray, .9)};
-    margin: 5em 5%;
-
-    .experience__heading {
-        margin: .5em 0;
-    }
-    
-    .experience__fig {
-        display: flex;
-        flex-direction: column;
-        column-gap: calc(2em + 5vw);
-    }
-    
-    .experience__img-c {
-        max-width: 610px;
-    }
-    
-    .experience__figc {
-        max-width: 500px;
-    }
-
-    .experience__br {
-        display: none;
-    }
-        
-    @media (min-width: 700px) {
-        .experience__fig {
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .experience__img-c,
-        .experience__figc {
-            flex: 1;
-        }
-
-        .experience__br {
-            display: block;
-        }
-    }
-
-    @media (min-width: 1100px) {
+  @media (min-width: 1100px) {
       & {
         margin-left: 120px;
         margin-right: 120px;
@@ -371,77 +285,44 @@ const Partners = styled.section`
     }
 `;
 
-const Home = () => {
+const NetworkAssessment = () => {
     useCloseMenu();
 
     return (
         <>
             <Header>
                 <Navbar />
-                <HeroCarousel />
+
+                <h1>Network Assessment <br />
+                    Services</h1>
             </Header>
-
             <Main>
-                <Services>
-                    <div className='services__text'>
-                        <h2>What we do Differently</h2>
-                        <p>
-                            Global Concept Emerge Technologies Limited is a team of
-                            infrastructure, network &amp; security certified experts and
-                            specialists who deliver IT solutions that are transparent,
-                            flexible and robust enough to drive customers'
-                            organizational and business goals.
-                        </p>
-
-                        <Link className='services__link' to='/'>Get Consultancy</Link>
+                <Overview>
+                    <div className='overview__left'>
+                        <h2 className='overview__heading'>Overview</h2>
+                        <img src={NetworkAssessmentOverview} alt="" />
                     </div>
-                </Services>
-                <About>
-                    <figure className='about__fig'>
-                        <figcaption className='about__figc'>
-                            <h2>
-                                Know About <abbr title="Global Concept Emerge Technologies">GCET</abbr>
-                            </h2>
-                            <p>
-                                Global Concept Emerge Technologies Limited is an IT
-                                Solutions delivery company incorporated under the
-                                Companies and Allied Matters Act 1990, to undertake
-                                and provide various information technology, as well
-                                as advisory services to all sectors of the Nigerian
-                                economy including Government departments &amp; as well
-                                as educational institutions.
-                            </p>
-                            <p>
-                                As certified technology company with interest in
-                                carefully tailored Information Technology Solutions,
-                                we are geared solely towards Consulting, Enterprise
-                                solutions architecture, Service delivery and
-                                implementation of both Networks, Security and
-                                Infrastructure.
-                            </p>
-                            <Link className='about__link' to='/'>About Us</Link>
-                        </figcaption>
-                        <div className="about__img-c">
-                            <img className='about__img' src={aboutGcetImage} alt="" />
-                        </div>
-                    </figure>
-                </About>
-                <Experience>
-                    <figure className='experience__fig'>
-                        <div className="experience__img-c">
-                            <img className='experience__img' src={provenExperienceImage} alt="" />
-                        </div>
-                        <figcaption className='experience__figc'>
-                            <h2 className='experience__heading'>Our 21 Years of <br className="experience__br" /> Proven Experience</h2>
-                            <p>
-                                Our promise to you is this; From the general to the
-                                more specific solutions, we will help you do the
-                                most with the least required, while making the
-                                Complex Look Simple.
-                            </p>
-                        </figcaption>
-                    </figure>
-                </Experience>
+                    <div className='overview__right'>
+                        <p>
+                            Our consultation services provide an overlook on how we can help assess any issues with the current network. Based on
+                            the assumptions given, we can infer an adequate synopsis on what is best for the company IT infrastructure. Our
+                            recommendation will be a valuable asset in noticing even the most under looked procedures and aspects of the IT
+                            infrastructure in need of maintenance, risk assessment and future investment.
+                        </p>
+                        <p>
+                            We will produce the tasks needed to support the network assessment. The overall scope will feature a generalization 
+                            of the work that needs to be accomplished. The following areas will have a deep dive session:
+                        </p>
+                        <ul className='overview__list'>
+                            <li>Physical Environment - Quite often overlooked is the space containing the network infrastructure.</li>
+                            <li>Staff Engagement - The entire procedure will be interactive with ARM Technical, Control and user group in different sessions.</li>
+                            <li>Network Infrastructure - Overall look at internet security, basic cabling, and network management.</li>
+                            <li>Servers and Workstations - Provides a better understanding of what current technology is being used, what servers are supporting the work, server management, allocated disk space, software compatibility, and more.</li>
+                            <li>Procedural Practices &amp; Documentation - To further rid of issues in the future, proper support is to be considered as a remedy to prevent faulty practicality</li>
+                        </ul>
+
+                    </div>
+                </Overview>
                 <Request>
                     <div className='request__text'>
                         <h2>Request for a Call Back</h2>
@@ -539,10 +420,9 @@ const Home = () => {
                     </figure>
                 </Partners>
             </Main>
-
             <Footer />
         </>
     )
 }
 
-export default Home
+export default NetworkAssessment;

@@ -19,7 +19,6 @@ const Nav = styled.nav`
     gap: 2.5em;
     
     font-weight: 600;
-    padding: 0 5% 1em;
     position: relative;
     z-index: 10;
     
@@ -27,8 +26,8 @@ const Nav = styled.nav`
         & {
             ${({ $isMenuOpen }) => $isMenuOpen && `
             position: fixed;
-            top: 2em;
-            right: 0;
+            top: 2.65em;
+            right: 5%;
             `}
         }
 
@@ -37,96 +36,94 @@ const Nav = styled.nav`
         }
     }
 
-    .nav {
+    .nav__menu {
+        display: none;
 
-        &__menu {
-            display: none;
+        flex: 1;
+        max-width: 800px;
+    }
 
-            flex: 1;
-            max-width: 800px;
+    .nav__list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav__item,
+    .nav__subitem {
+        position: relative;
+        display: block;
+        float: left;
+    }
+
+    .nav__item {
+        white-space: nowrap;
+
+        
+        &:hover > .nav__submenu,
+        &:focus-within > .nav__submenu,
+        .nav__submenu:hover,
+        .nav__submenu:focus {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+
         }
-    
-        &__list {
+    }
+
+    .nav__link {
+        color: ${({ theme }) => theme.colors.white};
+        cursor: pointer;
+
+        &--flex {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: .75em
         }
+    }
 
-        &__item,
-        &__subitem {
-            position: relative;
-            display: block;
-            float: left;
-        }
+    .nav__submenu {
+        border-radius: .125em;
+        padding-top: 1em;
+        min-width: 200px;
 
-        &__item {
-            white-space: nowrap;
+        display: none;
+        visibility: hidden;
+        opacity: 0;
 
-            
-            &:hover > .nav__submenu,
-            &:focus-within > .nav__submenu,
-            .nav__submenu:hover,
-            .nav__submenu:focus {
-                display: block;
-                opacity: 1;
-                visibility: visible;
+        position: absolute;
+        left: 0;
+        transition: all .5s ease-in-out;
+    }
 
-            }
-        }
-
-        &__link {
-            color: ${({ theme }) => theme.colors.white};
-
-            &--flex {
-                display: flex;
-                align-items: center;
-                gap: .75em
-            }
-        }
-
-        &__submenu {
-            border-radius: .125em;
-            padding-top: 1em;
-            min-width: 200px;
-
-            display: none;
-            visibility: hidden;
-            opacity: 0;
-
-            position: absolute;
-            left: 0;
-            transition: all .5s ease-in-out;
-        }
+    .nav__subitem {
+        clear: both;
+        width: 100%;
+        
+    }
     
-        &__subitem {
-            clear: both;
-            width: 100%;
-            
-        }
-        
-        &__sublink {
-            background: ${({ theme }) => theme.colors.white};
-            color: ${({ theme }) => theme.colors.darkGray};
-            display: block;
-            padding: .65em 1em;
+    .nav__sublink {
+        background: ${({ theme }) => theme.colors.white};
+        color: ${({ theme }) => theme.colors.darkGray};
+        display: block;
+        padding: .65em 1em;
 
-            &:hover {
-                background: #eeeeee;
-            }
+        &:hover {
+            background: #f5f5f5;
         }
-        
-        &__link-btn {
-            background: ${({ theme }) => theme.colors.lightBlue};
-            color: ${({ theme }) => theme.colors.white};
-            border-radius: .25em;
-            display: block;
-            padding: .625em .875em;
-        }
+    }
+    
+    .nav__link-btn {
+        background: ${({ theme }) => theme.colors.lightBlue};
+        color: ${({ theme }) => theme.colors.white};
+        border-radius: .25em;
+        display: block;
+        padding: .625em .875em;
+    }
 
-        @media (min-width: 800px) {
-            &__menu {
-                display: block;
-            }
+    @media (min-width: 800px) {
+        .nav__menu {
+            display: block;
         }
     }
 `;
@@ -149,11 +146,12 @@ const Navbar = () => {
                         </span>
 
                         <ul className="nav__submenu" aria-label='submenu'>
-                            <li className='nav__subitem'><Link to='/' className='nav__sublink'>Enterprise Security Solutions &amp; Services (ESSS)</Link></li>
-                            <li className='nav__subitem'><Link to='/' className='nav__sublink'>Infrastructure Solutions &amp; Services (ISS)</Link></li>
-                            <li className='nav__subitem'><Link to='/' className='nav__sublink'>Business Service Management Solutions</Link></li>
-                            <li className='nav__subitem'><Link to='/' className='nav__sublink'>Enterprise Networking Solutions</Link></li>
-                            <li className='nav__subitem'><Link to='/' className='nav__sublink'>Business Enterprise Software</Link></li>
+                            <li className='nav__subitem'><Link to='/solutions/eess' className='nav__sublink'>Enterprise Security Solutions &amp; Services (ESSS)</Link></li>
+                            <li className='nav__subitem'><Link to='/solutions/iss' className='nav__sublink'>Infrastructure Solutions &amp; Services (ISS)</Link></li>
+                            <li className='nav__subitem'><Link to='/solutions/bsms' className='nav__sublink'>Business Service Management Solutions</Link></li>
+                            <li className='nav__subitem'><Link to='/solutions/ens' className='nav__sublink'>Enterprise Networking Solutions</Link></li>
+                            <li className='nav__subitem'><Link to='/solutions/cms' className='nav__sublink'>Cloud and Mobile Solutions</Link></li>
+                            <li className='nav__subitem'><Link to='/solutions/bes' className='nav__sublink'>Business Enterprise Software</Link></li>
                         </ul>
                     </li>
                     <li className='nav__item'>
@@ -161,8 +159,8 @@ const Navbar = () => {
                             <FontAwesomeIcon icon='fa-solid fa-chevron-down' />
                         </span>
                         <ul className="nav__submenu" aria-label='submenu'>
-                            <li className='nav__subitem'><Link to='/' className='nav__sublink'>IT Advisory and Managed Services</Link></li>
-                            <li className='nav__subitem'><Link to='/' className='nav__sublink'>Network Assessment Services</Link></li>
+                            <li className='nav__subitem'><Link to='/services/it-advisory' className='nav__sublink'>IT Advisory and Managed Services</Link></li>
+                            <li className='nav__subitem'><Link to='/services/network-assessment' className='nav__sublink'>Network Assessment Services</Link></li>
                         </ul>
                     </li>
                     <li className='nav__item'><Link className='nav__link' to='/'>Blog</Link></li>

@@ -6,11 +6,25 @@ import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  Navigate
 } from 'react-router-dom';
 
 import Home from './components/pages/Home';
 import About from './components/pages/About';
+
+// Solutions
+import EESS from './components/pages/solutions/EESS';
+import ISS from './components/pages/solutions/ISS';
+import BSMS from './components/pages/solutions/BSMS';
+import ENS from './components/pages/solutions/ENS';
+import CMS from './components/pages/solutions/CMS';
+import BES from './components/pages/solutions/BES';
+
+// Services
+import ItAdvisory from './components/pages/services/ItAdvisory';
+import NetworkAssessment from './components/pages/services/NetworkAssessment';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,7 +35,26 @@ root.render(
           <Route index element={<Home />} />
 
           <Route path='about' element={<About />} />
+
+          <Route path='solutions'>
+            <Route index element={<Navigate to='eess' />} />
+
+            <Route path='eess' element={<EESS />} />
+            <Route path='iss' element={<ISS />} />
+            <Route path='bsms' element={<BSMS />} />
+            <Route path='ens' element={<ENS />} />
+            <Route path='cms' element={<CMS />} />
+            <Route path='bes' element={<BES />} />
+          </Route>
+
+          <Route path='services'>
+            <Route index element={<Navigate to='it-advisory' />} />
+
+            <Route path='it-advisory' element={<ItAdvisory />} />
+            <Route path='network-assessment' element={<NetworkAssessment />} />
+          </Route>
         </Route>
+
       </Routes>
 
     </Router>

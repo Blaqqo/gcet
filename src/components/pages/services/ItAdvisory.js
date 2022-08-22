@@ -1,52 +1,52 @@
-import { Link } from 'react-router-dom';
-
 import styled from 'styled-components';
 
-import Navbar from '../Navbar';
-import HeroCarousel from '../home/HeroCarousel';
-import Footer from '../Footer';
+import Navbar from '../../Navbar';
+import Footer from '../../Footer';
 
-import { convertHexToRgba } from '../../utils/convertHexToRgba';
+import { convertHexToRgba } from '../../../utils/convertHexToRgba';
 
-import useCloseMenu from '../../hooks/useCloseMenu';
+import useCloseMenu from '../../../hooks/useCloseMenu';
 
-// Images
-import aboutGcetImage from '../../assets/images/home/about-gcet-img.jpg';
-import aboutGcetBg from '../../assets/images/home/about-gcet-bg.jpg';
-import provenExperienceImage from '../../assets/images/home/proven-experience-img.jpg';
+import ITAdvisoryHeroBg from '../../../assets/images/services/it-advisory-hero-bg.jpg';
+import ITAdvisoryOverview from '../../../assets/images/services/it-advisory-overview.jpg';
 
 // Partners' logo
-import HPLogo from '../../assets/images/partners/hp.png';
-import dellLogo from '../../assets/images/partners/dell.png';
-import nimbleStorageLogo from '../../assets/images/partners/nimble-storage.png';
-import netAppLogo from '../../assets/images/partners/netapp.png';
-import veeamLogo from '../../assets/images/partners/veeam.png';
-import barracudaLogo from '../../assets/images/partners/barracuda.png';
-import coreViewLogo from '../../assets/images/partners/coreview.png';
-import commVaultLogo from '../../assets/images/partners/commvault.png';
-import VMWareLogo from '../../assets/images/partners/vmware.png';
-import ciscoLogo from '../../assets/images/partners/cisco.png';
-import sophosLogo from '../../assets/images/partners/sophos.png';
-import f5Logo from '../../assets/images/partners/f5.png';
-import microsoftLogo from '../../assets/images/partners/microsoft.png';
-import trendMicroLogo from '../../assets/images/partners/trend-micro.png';
-import forescoutLogo from '../../assets/images/partners/forescout.png';
-import fortinetLogo from '../../assets/images/partners/fortinet.png';
-import BCInTheCloudLogo from '../../assets/images/partners/bc-in-the-cloud.png';
-import alienVaultLogo from '../../assets/images/partners/alien-vault.png';
-
-import heroBgLeft from '../../assets/images/home/hero-bg-left.svg';
-import heroBgRight from '../../assets/images/home/hero-bg-right.svg';
+import HPLogo from '../../../assets/images/partners/hp.png';
+import dellLogo from '../../../assets/images/partners/dell.png';
+import nimbleStorageLogo from '../../../assets/images/partners/nimble-storage.png';
+import netAppLogo from '../../../assets/images/partners/netapp.png';
+import veeamLogo from '../../../assets/images/partners/veeam.png';
+import barracudaLogo from '../../../assets/images/partners/barracuda.png';
+import coreViewLogo from '../../../assets/images/partners/coreview.png';
+import commVaultLogo from '../../../assets/images/partners/commvault.png';
+import VMWareLogo from '../../../assets/images/partners/vmware.png';
+import ciscoLogo from '../../../assets/images/partners/cisco.png';
+import sophosLogo from '../../../assets/images/partners/sophos.png';
+import f5Logo from '../../../assets/images/partners/f5.png';
+import microsoftLogo from '../../../assets/images/partners/microsoft.png';
+import trendMicroLogo from '../../../assets/images/partners/trend-micro.png';
+import forescoutLogo from '../../../assets/images/partners/forescout.png';
+import fortinetLogo from '../../../assets/images/partners/fortinet.png';
+import BCInTheCloudLogo from '../../../assets/images/partners/bc-in-the-cloud.png';
+import alienVaultLogo from '../../../assets/images/partners/alien-vault.png';
 
 const Header = styled.header`
-    background-image: url(${heroBgLeft}), url(${heroBgRight});
-    background-color: ${({ theme }) => theme.colors.mediumBlue};
+    background-image: url(${ITAdvisoryHeroBg}), linear-gradient(${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)});
     background-repeat: no-repeat;
-    background-position: left bottom, right top;
+    background-size: cover;
+    background-blend-mode: multiply;
     color: ${({ theme }) => theme.colors.white};
 
-    min-height: 100vh;
+    min-height: min(100vh, 520px);
     padding: 2em 5%;
+
+    display: grid;
+    align-items: start;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
 
     @media (min-width: 1100px) {
       & {
@@ -70,145 +70,51 @@ const Main = styled.main`
     }
 `;
 
-const Services = styled.section`
-    margin: 6em 5%;
+const Overview = styled.section`
+  margin: 3em 5%;
 
-    .services__text {
-        line-height: 1.5;
-        margin: 0 auto;
-        max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 2em calc(2em + 5vw);
+
+  .overview__heading {
+    border-top: 1.2px solid currentColor;
+
+    color: ${({ theme }) => theme.colors.mediumBlue};
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5em;
+    padding-top: .25em;
+  }
+
+  .overview__right {
+    line-height: 2;
+
+    > * {
+      margin: 1.5em 0;
+    }
+  }
+
+  @media (min-width: 800px) {
+    & {
+      flex-direction: row;
     }
     
-    .services__link {
-        background: ${({ theme }) => theme.colors.lightBlue};
-        color: ${({ theme }) => theme.colors.white};
-        border-radius: .25em;
-        display: block;
-        font-weight: 700;
-        margin: 2em auto;
-        padding: .625em .875em;
-        width: fit-content;
-    }
-    
-    @media (min-width: 700px) {
-        .services__text {
-            text-align: center;
-        }
+    .overview__left,
+    .overview__right {
+      flex: 1;
     }
 
-    @media (min-width: 1100px) {
-      & {
-        margin-left: 120px;
-        margin-right: 120px;
-      }
-    }
-`;
-
-const About = styled.section`
-    background: url(${aboutGcetBg}) no-repeat;
-    background-size: cover;
-    color: ${({ theme }) => theme.colors.white};
-    padding: 3em 5%;
-
-    p {
-        margin: 1em 0;
-    }
-    
-    .about__fig {
-        display: flex;
-        flex-direction: column;
-        gap: calc(2em + 7.5vw);
+    .overview__left {
+      max-width: 440px;
     }
 
-    .about__img {
-        border-radius: 6.25em;
+    .overview__right {
+      max-width: 700px;
     }
+  }
 
-    .about__link {
-        background: ${({ theme }) => theme.colors.white};
-        color: ${({ theme }) => theme.colors.lightBlue};
-        border-radius: .25em;
-        display: block;
-        font-weight: 700;
-        margin: 2em 0;
-        padding: .625em .875em;
-        width: fit-content;
-    }
-
-    @media (min-width: 700px) {
-        .about__fig {
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .about__figc,
-        .about__img-c {
-            flex: 400px;
-        }
-
-        .about__figc {
-            max-width: 600px;
-        }
-
-        .about__img-c {
-            max-width: fit-content;
-        }
-    }
-
-    
-    @media (min-width: 1100px) {
-        & {
-            background-size: contain;
-
-            padding-left: 120px;
-            padding-right: 120px;
-        }
-    }
-`;
-
-const Experience = styled.section`
-    color: ${({ theme }) => convertHexToRgba(theme.colors.darkGray, .9)};
-    margin: 5em 5%;
-
-    .experience__heading {
-        margin: .5em 0;
-    }
-    
-    .experience__fig {
-        display: flex;
-        flex-direction: column;
-        column-gap: calc(2em + 5vw);
-    }
-    
-    .experience__img-c {
-        max-width: 610px;
-    }
-    
-    .experience__figc {
-        max-width: 500px;
-    }
-
-    .experience__br {
-        display: none;
-    }
-        
-    @media (min-width: 700px) {
-        .experience__fig {
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .experience__img-c,
-        .experience__figc {
-            flex: 1;
-        }
-
-        .experience__br {
-            display: block;
-        }
-    }
-
-    @media (min-width: 1100px) {
+  @media (min-width: 1100px) {
       & {
         margin-left: 120px;
         margin-right: 120px;
@@ -371,77 +277,37 @@ const Partners = styled.section`
     }
 `;
 
-const Home = () => {
+const ItAdvisory = () => {
     useCloseMenu();
 
     return (
         <>
             <Header>
                 <Navbar />
-                <HeroCarousel />
+                <h1>IT Advisory and <br />
+                    Managed Services</h1>
             </Header>
-
             <Main>
-                <Services>
-                    <div className='services__text'>
-                        <h2>What we do Differently</h2>
-                        <p>
-                            Global Concept Emerge Technologies Limited is a team of
-                            infrastructure, network &amp; security certified experts and
-                            specialists who deliver IT solutions that are transparent,
-                            flexible and robust enough to drive customers'
-                            organizational and business goals.
-                        </p>
-
-                        <Link className='services__link' to='/'>Get Consultancy</Link>
+                <Overview>
+                    <div className='overview__left'>
+                        <h2 className='overview__heading'>Overview</h2>
+                        <img src={ITAdvisoryOverview} alt="" />
                     </div>
-                </Services>
-                <About>
-                    <figure className='about__fig'>
-                        <figcaption className='about__figc'>
-                            <h2>
-                                Know About <abbr title="Global Concept Emerge Technologies">GCET</abbr>
-                            </h2>
-                            <p>
-                                Global Concept Emerge Technologies Limited is an IT
-                                Solutions delivery company incorporated under the
-                                Companies and Allied Matters Act 1990, to undertake
-                                and provide various information technology, as well
-                                as advisory services to all sectors of the Nigerian
-                                economy including Government departments &amp; as well
-                                as educational institutions.
-                            </p>
-                            <p>
-                                As certified technology company with interest in
-                                carefully tailored Information Technology Solutions,
-                                we are geared solely towards Consulting, Enterprise
-                                solutions architecture, Service delivery and
-                                implementation of both Networks, Security and
-                                Infrastructure.
-                            </p>
-                            <Link className='about__link' to='/'>About Us</Link>
-                        </figcaption>
-                        <div className="about__img-c">
-                            <img className='about__img' src={aboutGcetImage} alt="" />
-                        </div>
-                    </figure>
-                </About>
-                <Experience>
-                    <figure className='experience__fig'>
-                        <div className="experience__img-c">
-                            <img className='experience__img' src={provenExperienceImage} alt="" />
-                        </div>
-                        <figcaption className='experience__figc'>
-                            <h2 className='experience__heading'>Our 21 Years of <br className="experience__br" /> Proven Experience</h2>
-                            <p>
-                                Our promise to you is this; From the general to the
-                                more specific solutions, we will help you do the
-                                most with the least required, while making the
-                                Complex Look Simple.
-                            </p>
-                        </figcaption>
-                    </figure>
-                </Experience>
+                    <div className='overview__right'>
+                        <p>
+                            Under the Services portfolio, GCET provides consulting, managed and professional services to customers, first around
+                            all our core solutions and then in specialized areas like security, automation, tuning, customization /special /
+                            customer-specific archiving, processes, etc., that are not off the shelf.
+                        </p>
+                        <p>
+                            With our experience from global IT organizations like Microsoft, Cisco, IBM, CheckPoint, Sophos, Barracuda and with our
+                            ITIL, Project Management, architecture and other exposures we have gained over the years and our partnership with
+                            individual and teams of experts around the world, we have a service that helps customers improve their operations from
+                            process initiation, design and or optimization to architecture designs, integration into service management to solution
+                            evaluation and documentation.
+                        </p>
+                    </div>
+                </Overview>
                 <Request>
                     <div className='request__text'>
                         <h2>Request for a Call Back</h2>
@@ -539,10 +405,9 @@ const Home = () => {
                     </figure>
                 </Partners>
             </Main>
-
             <Footer />
         </>
     )
 }
 
-export default Home
+export default ItAdvisory;

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 
-import { Pagination, Autoplay } from "swiper";
+import { Pagination, Autoplay, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -15,95 +15,94 @@ import heroImg2 from '../../assets/images/home/hero-img-2.png';
 import heroImg3 from '../../assets/images/home/hero-img-3.png';
 
 const SwiperSC = styled(Swiper)`
-    margin: 4em 5% 0;
-    padding-bottom: 3em;
+    padding: 4em 0 3em;
 
-    .swiper {
+    .swiper-pagination {
+        bottom: 15px;
+    }
 
-        &-pagination {
-            bottom: 15px;
-        }
+    .swiper-pagination-bullet {
+        background: ${({ theme }) => convertHexToRgba(theme.colors.white, .5)};
+    }
+    
+    .swiper-pagination-bullet-active {
+        background: ${({ theme }) => theme.colors.white};
+    }
 
-        &-pagination-bullet {
-            background: ${({ theme }) => convertHexToRgba(theme.colors.white, .5)};
-        }
+    .hero__fig {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .hero__heading {
+        font-size: 2.75rem;
+        font-weight: 800;
+        margin: .25em 0;
+    }
+
+    .hero__p {
+        font-size: 1.125rem;
+        line-height: 1.5625;
+    }
+
+    .hero__link-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+
+        margin: 2em 0;
+    }
+    
+    .hero__link-btn {
+        border-radius: .25em;
+        font-size: 1.125rem;
+        font-weight: 600;
+        display: block;
+        padding: .625em .875em;
         
-        &-pagination-bullet-active {
+        &--consultancy {
+            background: ${({ theme }) => theme.colors.lightBlue};
+            color: ${({ theme }) => theme.colors.white};
+        }
+
+        &--call {
             background: ${({ theme }) => theme.colors.white};
+            color: ${({ theme }) => theme.colors.lightBlue};
         }
     }
 
-    .hero {
-        &__fig {
-            display: flex;
-            flex-direction: column;
+    @media (min-width: 800px) {
+        .hero__fig {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
             gap: 2em;
         }
 
-        &__heading {
-            font-size: 2.75rem;
-            font-weight: 800;
-            margin: .25em 0;
+        .hero__figc,
+        .hero__img-c {
+            flex: 300px;
+            max-width: 600px;
         }
 
-        &__p {
-            font-size: 1.125rem;
-            line-height: 1.5625;
-        }
-
-        &__link-btns {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1em;
-
-            margin: 2em 0;
-        }
-        
-        &__link-btn {
-            border-radius: .25em;
-            font-size: 1.125rem;
-            font-weight: 600;
-            display: block;
-            padding: .625em .875em;
-            
-            &--consultancy {
-                background: ${({ theme }) => theme.colors.lightBlue};
-                color: ${({ theme }) => theme.colors.white};
-            }
-
-            &--call {
-                background: ${({ theme }) => theme.colors.white};
-                color: ${({ theme }) => theme.colors.lightBlue};
-            }
-        }
-
-        @media (min-width: 800px) {
-            &__fig {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                gap: 2em;
-            }
-
-            &__figc,
-            &__img-c {
-                flex: 300px;
-                max-width: 600px;
-            }
+        .hero__img-c {
+            text-align: right;
         }
     }
-    `;
+`;
 
 const HeroCarousel = () => {
     return (
         <SwiperSC
             pagination={{ clickable: true }}
             loop={true}
+            // effect={'fade'}
             autoplay={{
                 delay: 5000,
                 disableOnInteraction: false
             }}
-            modules={[Pagination, Autoplay]}>
+            modules={[Pagination, Autoplay, EffectFade]}>
             <SwiperSlide className="hero__slide">
                 <figure className="hero__fig">
                     <figcaption className="hero__figc">
@@ -154,11 +153,10 @@ const HeroCarousel = () => {
             <SwiperSlide className="hero__slide">
                 <figure className="hero__fig">
                     <figcaption className="hero__figc">
-                        <h1 className="hero__heading">Grow Your Business</h1>
+                        <h1 className="hero__heading">Make Your Dream True</h1>
                         <p className="hero__p">
-                            We help businesses build their IT organisation from the
-                            heart of growth and innovation to increased all-round
-                            efficiency.
+                            We understand that all thriving global businesses rely on technology to sustain growth, we are your right partner for IT 
+                            initiatives, implementation and support.
                         </p>
                         <menu className="hero__link-btns">
                             <li>

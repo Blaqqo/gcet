@@ -1,4 +1,8 @@
+// import { useState } from 'react';
+
 import styled from 'styled-components';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Navbar from '../Navbar';
 import Footer from '../Footer';
@@ -16,8 +20,8 @@ import approachBg from '../../assets/images/about/approach-bg.jpg';
 import visionBg from '../../assets/images/about/vision-bg.jpg';
 import processBg from '../../assets/images/about/process-bg.jpg';
 
-import mdImg from '../../assets/images/about/md.jpg';
-import cooImg from '../../assets/images/about/coo.jpg';
+import MDImg from '../../assets/images/about/md.jpg';
+import COOImg from '../../assets/images/about/coo.jpg';
 import faceBookIcon from '../../assets/images/icons/facebook.svg';
 import twitterIcon from '../../assets/images/icons/twitter.svg';
 import instagramIcon from '../../assets/images/icons/instagram.svg';
@@ -35,43 +39,39 @@ const Header = styled.header`
     color: ${({ theme }) => theme.colors.white};
 
     min-height: 100vh;
-    padding: 2em 0;
+    padding: 2em 5%;
 
-    .hero {
+    .hero__fig {
+        padding: 2em 0;
         
-        &__fig {
-            padding: 2em 5%;
-            
-            display: flex;
-            flex-direction: column;
-            align-content: center;
-            column-gap: 2em;
+        display: flex;
+        flex-direction: column;
+        column-gap: 2em;
+    }
+
+    .hero__heading {
+        font-size: 2.75rem;
+        font-weight: 800;
+        margin: .25em 0;
+    }
+
+    .hero__p {
+        font-size: 1.125rem;
+        line-height: 1.5625;
+    }
+
+    @media (min-width: 800px) {
+        .hero__fig {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2em;
         }
 
-        &__heading {
-            font-size: 2.75rem;
-            font-weight: 800;
-            margin: .25em 0;
-        }
-
-        &__p {
-            font-size: 1.125rem;
-            line-height: 1.5625;
-        }
-
-        @media (min-width: 800px) {
-            &__fig {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                gap: 2em;
-            }
-
-            &__figc,
-            &__img-c {
-                flex: 300px;
-                max-width: 600px;
-            }
+        .hero__figc,
+        .hero__img-c {
+            flex: 300px;
+            max-width: 600px;
         }
     }
 `;
@@ -103,45 +103,43 @@ const Intro = styled.section`
 const AboutSC = styled.section`
     margin: 6em 5%;
 
-    .about {
-        &__heading {
-            margin: .5em 0;
-        }
-        
-        &__fig {
-            display: flex;
-            flex-direction: column;
-            gap: 2em;
-            justify-content: space-between;
-        }
-        
-        &__img-c {
-            max-width: 550px;
-        }
-        
-        &__img {
-            border-radius: 6.25em;
-            width: 100%;
-        }
-        
-        &__figc {
-            max-width: 600px;
+    .about__heading {
+        margin: .5em 0;
+    }
+    
+    .about__fig {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        justify-content: space-between;
+    }
+    
+    .about__img-c {
+        max-width: 550px;
+    }
+    
+    .about__img {
+        border-radius: 6.25em;
+        width: 100%;
+    }
+    
+    .about__figc {
+        max-width: 600px;
+    }
+
+    .about__p {
+        margin: 1.25em 0;
+    }
+    
+    @media (min-width: 800px) {
+        .about__fig {
+            flex-direction: row;
+            align-items: center;
         }
 
-        &__p {
-            margin: 1.25em 0;
-        }
-        
-        @media (min-width: 800px) {
-            &__fig {
-                flex-direction: row;
-                align-items: center;
-            }
-
-            &__img-c,
-            &__figc {
-                flex: 1;
-            }
+        .about__img-c,
+        .about__figc {
+            flex: 1;
         }
     }
 `;
@@ -149,45 +147,41 @@ const AboutSC = styled.section`
 const Values = styled.section`
     margin: 4em 5%;
     
-    .values {
-        
-        &__heading {
-            text-align: center;
-        }
+    .values__heading {
+        text-align: center;
+    }
 
-        &__list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2em;
+    .values__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2em;
 
-            margin: 3em auto 6em;
-            max-width: 950px;
-        }
-
-       
+        margin: 3em auto 6em;
+        max-width: 950px;
     }
 
     .value {
         min-width: 170px;
 
-        &__fig {
-            border-radius: .625em;
-            box-shadow: 2px 4px 6px 5px rgba(69, 99, 135, 0.1);
-            padding: 1.75em 1em;
+    }
 
-            display: flex;
-            flex-direction: column;
-            gap: 1.5em;
-            align-items: center;
+    .value__fig {
+        border-radius: .625em;
+        box-shadow: 2px 4px 6px 5px rgba(69, 99, 135, 0.1);
+        padding: 1.75em 1em;
 
-        }
-        
-        &__figc {
-            font-weight: 700;
-        }
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        align-items: center;
+
     }
     
+    .value__figc {
+        font-weight: 700;
+    }
+
     .articles {
         display: grid;
         grid-auto-rows: 1fr;
@@ -200,21 +194,11 @@ const Values = styled.section`
         background-size: cover;
         color: ${({ theme }) => theme.colors.white};
         padding: 1em;
-        
-        &__heading {
-            font-size: 1.5625rem;
-            margin: 1em 0;
-            text-align: center;
-        }
-
-        &__p {
-            margin: 1em 0;
-        }
 
         &--approach {
             background-image: linear-gradient(to top, #456387 67.55%, rgba(34, 78, 132, 0.3) 100%), url(${approachBg});
         }
-
+    
         &--vision {
             background-image: linear-gradient(to top, #456387 67.55%, rgba(34, 78, 132, 0.3) 100%), url(${visionBg});
         }
@@ -222,6 +206,17 @@ const Values = styled.section`
         &--process {
             background-image: linear-gradient(to top, #456387 67.55%, rgba(34, 78, 132, 0.3) 100%), url(${processBg});
         }
+            
+    }
+
+    .article__heading {
+        font-size: 1.5625rem;
+        margin: 1em 0;
+        text-align: center;
+    }
+
+    .article__p {
+        margin: 1em 0;
     }
 
     @media (min-width: 409px) {
@@ -233,7 +228,7 @@ const Values = styled.section`
             margin-top: 5em;
 
         }
-        }
+    }
     
     @media (min-width: 700px) {
         .articles {
@@ -244,59 +239,118 @@ const Values = styled.section`
 
 const Team = styled.section`
     margin: 7.5em 5%;
-    text-align: center;
+    
+    .team__heading {
+        margin: 2em 0;
+        text-align: center;
+    }
+    
+    .team__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2em;
 
-    .team {
-
-        &__heading {
-            margin: 2em 0;
-        }
-
-        &__list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 2em;
-
-            max-width: 880px;
-            margin: 0 auto;
-        }
-
+        max-width: 880px;
+        margin: 0 auto;
+        text-align: center;
     }
 
     .teammate {
         flex: 200px;
-        max-width: 360px;
+        max-width: 360px; 
+    }
 
-        &__fig {
-            background: ${({ theme }) => theme.colors.mediumBlue};
-            border-radius: .625em;
-            overflow: hidden;
+    .teammate__fig {
+        background: ${({ theme }) => theme.colors.mediumBlue};
+        border-radius: .625em;
+        overflow: hidden;
+    }
 
-        }
+    .teammate__figc {            
+        color: ${({ theme }) => theme.colors.white};
+        padding: .75em 0;
+    }
 
-        &__figc {            
-            color: ${({ theme }) => theme.colors.white};
-            padding: .75em 0;
-        }
+    .teammate__name {
+        font-weight: 600;
+    }
 
-        &__name {
-            font-weight: 600;
-        }
+    .teammate__role {
+        margin: .35em 0 .75em;
+    }
 
-        &__role {
-            margin: .35em 0 .75em;
-        }
+    .teammate__socials {
+        display: flex;
+        justify-content: center;
+        gap: .75em;
+    }
 
-        &__socials {
-            display: flex;
-            justify-content: center;
-            gap: .75em;
-        }
+
+    .dialog {
+        background: ${({ theme }) => theme.colors.white};
+        border: none;
+        border-radius: 1.25em;
+        max-width: 650px;
+        overflow: hidden;
+        padding: 1.5em;
+
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .dialog__fig {
+        display: flex;
+        align-items: center;
+        gap: 2em;
+    }
+
+    .dialog__img {
+        max-width: 175px;
+    }
+
+    .dialog__name {
+        font-size: 1.375rem;
+        font-weight: 700;
+    }
+
+    .dialog__job-role {
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+
+    .dialog__heading {
+        border-bottom: 3px solid ${({ theme }) => theme.colors.mediumBlue};
+        font-size: 1.125rem;
+        margin: 1.25em 0;
+        max-width: fit-content;
+        padding-bottom: .25em;
+    }
+
+    .dialog__p {
+        line-height: 1.5;
+        margin: 1em 0;
     }
 `;
 
 const About = () => {
+    // const [showMdDialog, setShowMdDialog] = useState(false);
+    // const [showCooDialog, setShowCooDialog] = useState(false);
+
+    // const toggleMdDialog = () => {
+    //     setShowMdDialog((prevState) => !prevState);
+    // }
+
+    // const toggleCooDialog = () => {
+
+    //     setShowCooDialog(true);
+    //     if (showCooDialog) {
+
+    //     }
+    // }
+
     useCloseMenu();
 
     return (
@@ -423,7 +477,7 @@ const About = () => {
                     <ul className='team__list'>
                         <li className='teammate'>
                             <figure className='teammate__fig'>
-                                <img className='teammate__img' src={mdImg} alt="GCET Managing Director" />
+                                <img className='teammate__img' src={MDImg} alt="GCET Managing Director" />
                                 <figcaption className='teammate__figc'>
                                     <h3 className='teammate__name'>Tayo Olubanke</h3>
                                     <p className='teammate__role'>Managing Director</p>
@@ -438,10 +492,10 @@ const About = () => {
                         </li>
                         <li className='teammate'>
                             <figure className='teammate__fig'>
-                                <img className='teammate__img' src={cooImg} alt="GCET COO" />
+                                <img className='teammate__img' src={COOImg} alt="GCET COO" />
                                 <figcaption className='teammate__figc'>
                                     <h3 className='teammate__name'>Solomon Awosina</h3>
-                                    <p className='teammate__role'>COO / CTO</p>
+                                    <p className='teammate__role'><abbr title="Chief Operating Officer">COO</abbr> / <abbr title="Chief Technology Officer">CTO</abbr></p>
                                     <div className='teammate__socials'>
                                         <a href="https://www.facebook.com" target='_blank' rel="noreferrer"><img src={faceBookIcon} alt="Facebook icon" title='Facebook' /></a>
                                         <a href="https://www.twitter.com" target='_blank' rel="noreferrer"><img src={twitterIcon} alt="Twitter icon" title='Twitter' /></a>
@@ -452,6 +506,63 @@ const About = () => {
                             </figure>
                         </li>
                     </ul>
+
+                    <dialog>
+                        <button>
+                            <FontAwesomeIcon icon='fa-solid fa-xmark' />
+                        </button>
+                        <figure>
+                            <img src={MDImg} alt="GCET Managing Director" />
+                            <figcaption>
+                                <p>Tayo Olubanke</p>
+                                <p>Managing Director</p>
+                            </figcaption>
+                        </figure>
+
+                        <h3>Background</h3>
+                        <p>
+                            Tayo is an Applied Geophysics graduate from Federal University of Technology Akure. He is a result oriented I.T. Consultant
+                            with extensive experience in designing IT cost saving solutions that empower organizations to meet business KPIs.
+                        </p>
+                        <p>
+                            His experience in pre-sales spans a wide area of IT with primary area of focus being infrastructure solutions (both software
+                            and hardware) - Enterprise Storage Systems, Cloud, Big Data, Business Intelligence /Data Warehouse, Backup and Recovery
+                            Solutions, Business Continuity Solutions, ILM (information life-cycle Management).
+                        </p>
+                        <p>
+                            He is also a successful Product Manager for BMC Software, Commvault, Citrix and Nimble Storage. The very first Nimble Storage
+                            product manager in Nigeria and West Africa, Tayo is a certified enterprise storage expert, who has over 9 years' experience
+                            working with enterprises within and outside Nigeria in Telecoms, Banks, Oil &amp; Gas and the Government Sector.
+                        </p>
+                        <p>
+                            He has lead various teams in successful installation, configuration, deployment, upgrade and migration of many enterprise
+                            storage systems.
+                        </p>
+                    </dialog>
+                    <dialog className='dialog'>
+                        <button>
+                            <FontAwesomeIcon icon='fa-solid fa-xmark' />
+                        </button>
+                        <figure className='dialog__fig'>
+                            <img className='dialog__img' src={COOImg} alt="GCET COO" />
+                            <figcaption>
+                                <p className='dialog__name'>Solomon Awosina</p>
+                                <p className='dialog__job-role'><abbr title="Chief Operating Officer">COO</abbr> / <abbr title="Chief Technology Officer">CTO</abbr></p>
+                            </figcaption>
+                        </figure>
+
+                        <h3 className='dialog__heading'>Background</h3>
+                        <p className='dialog__p'>
+                            Solomon holds a Higher National Diploma in Electrical Electronics from Yaba College of Technology and BSc in Computer
+                            Science. He is a Network and IT security Certified Professional with over twelve years' experience in design, configuration
+                            and administration of different products and solutions.
+                        </p>
+                        <p className='dialog__p'>
+                            Solomon has lead various teams in successful installation, configuration, deployment, upgrade and migration of devices and
+                            network. His analytical skill garnered from his years of experience in the banking sector has been an asset in financial
+                            analysis and justification for investment in technology.
+                        </p>
+                    </dialog>
                 </Team>
             </Main>
             <Footer />

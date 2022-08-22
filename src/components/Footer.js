@@ -127,32 +127,32 @@ const Footer = () => {
                     <h3 className="footer__heading">Solutions</h3>
                     <ul className="footer__list">
                         <li>
-                            <Link className="footer__link" to='/'>
+                            <Link className="footer__link" to='/solutions/eess'>
                                 Enterprise Security Solutions &amp; Services
                             </Link>
                         </li>
                         <li>
-                            <Link className="footer__link" to='/'> Infrastructure Solutions &amp; Services </Link>
+                            <Link className="footer__link" to='/solutions/iss'> Infrastructure Solutions &amp; Services </Link>
                         </li>
                         <li>
-                            <Link className="footer__link" to='/'> Business Service Management </Link>
+                            <Link className="footer__link" to='/solutions/bsms'> Business Service Management </Link>
                         </li>
                         <li>
-                            <Link className="footer__link" to='/'> Enterprise Networking Solutions </Link>
+                            <Link className="footer__link" to='/solutions/ens'> Enterprise Networking Solutions </Link>
                         </li>
                         <li>
-                            <Link className="footer__link" to='/'> Cloud and Mobile Solutions </Link>
+                            <Link className="footer__link" to='/solutions/cms'> Cloud and Mobile Solutions </Link>
                         </li>
                         <li>
-                            <Link className="footer__link" to='/'> Business Enterprise Software </Link>
+                            <Link className="footer__link" to='/solutions/bes'> Business Enterprise Software </Link>
                         </li>
                     </ul>
                 </nav>
                 <nav className="footer__nav">
                     <h3 className="footer__heading">Services</h3>
                     <ul className="footer__list">
-                        <li><Link className="footer__link" to='/'> IT Advisory and Managed Services </Link></li>
-                        <li><Link className="footer__link" to='/'> Network Assessment Services </Link></li>
+                        <li><Link className="footer__link" to='/services/it-advisory'> IT Advisory and Managed Services </Link></li>
+                        <li><Link className="footer__link" to='/services/network-assessment'> Network Assessment Services </Link></li>
                     </ul>
                 </nav>
                 <div className="footer__address-c">
