@@ -7,8 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 
-import useCloseMenu from '../../hooks/useCloseMenu';
-
 import { convertHexToRgba } from '../../utils/convertHexToRgba';
 
 // images
@@ -405,8 +403,6 @@ const About = () => {
 
         return () => dialog.close();
     }, [displayCooModal]);
-
-    useCloseMenu();
 
     return (
         <>

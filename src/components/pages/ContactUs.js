@@ -22,7 +22,7 @@ const Header = styled.header`
     color: ${({ theme }) => theme.colors.white};
 
     min-height: 555px;
-    padding: 2em 5%;
+    padding: 2em 5% 4em;
 
     display: grid;
     align-items: start;
@@ -72,17 +72,16 @@ const Main = styled.main`
 `;
 
 const FormSection = styled.section`
-    margin: -4em auto 10em;
+    margin: -3em 5% 10em;
     
     .form-wrapper {
         
         border-radius: .625em;
         box-shadow: 0px 4px 4px rgba(15, 12, 40, 0.1);
         overflow: hidden;
-
+        
         display: flex;
         flex-direction: column;
-        align-items: stretch;
     }
 
 

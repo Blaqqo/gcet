@@ -5,8 +5,6 @@ import Footer from '../../Footer';
 
 import { convertHexToRgba } from '../../../utils/convertHexToRgba';
 
-import useCloseMenu from '../../../hooks/useCloseMenu';
-
 import ISSHeroBg from '../../../assets/images/solutions/iss-hero-bg.jpg';
 import ISSOverview from '../../../assets/images/solutions/iss-overview.jpg';
 
@@ -150,7 +148,6 @@ const Partners = styled.section`
 `;
 
 const ISS = () => {
-  useCloseMenu();
 
   return (
     <>

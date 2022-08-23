@@ -5,8 +5,6 @@ import Footer from '../../Footer';
 
 import { convertHexToRgba } from '../../../utils/convertHexToRgba';
 
-import useCloseMenu from '../../../hooks/useCloseMenu';
-
 import ENSHeroBg from '../../../assets/images/solutions/ens-hero-bg.jpg';
 import ENSOverview from '../../../assets/images/solutions/ens-overview.jpg';
 
@@ -146,7 +144,6 @@ const Partners = styled.section`
 `;
 
 const ENS = () => {
-  useCloseMenu();
 
   return (
     <>

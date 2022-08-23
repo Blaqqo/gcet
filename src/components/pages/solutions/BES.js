@@ -5,8 +5,6 @@ import Footer from '../../Footer';
 
 import { convertHexToRgba } from '../../../utils/convertHexToRgba';
 
-import useCloseMenu from '../../../hooks/useCloseMenu';
-
 import BESHeroBg from '../../../assets/images/solutions/bes-hero-bg.jpg';
 import BESOverview from '../../../assets/images/solutions/bes-overview.jpg';
 
@@ -150,7 +148,6 @@ const Partners = styled.section`
 `;
 
 const BES = () => {
-  useCloseMenu();
 
   return (
     <>

@@ -5,8 +5,6 @@ import Footer from '../../Footer';
 
 import { convertHexToRgba } from '../../../utils/convertHexToRgba';
 
-import useCloseMenu from '../../../hooks/useCloseMenu';
-
 import CMSHeroBg from '../../../assets/images/solutions/cms-hero-bg.jpg';
 import CMSOverview from '../../../assets/images/solutions/cms-overview.jpg';
 
@@ -146,7 +144,6 @@ const Partners = styled.section`
 `;
 
 const CMS = () => {
-  useCloseMenu();
 
   return (
     <>

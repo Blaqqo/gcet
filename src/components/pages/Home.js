@@ -8,8 +8,6 @@ import Footer from '../Footer';
 
 import { convertHexToRgba } from '../../utils/convertHexToRgba';
 
-import useCloseMenu from '../../hooks/useCloseMenu';
-
 // Images
 import aboutGcetImage from '../../assets/images/home/about-gcet-img.jpg';
 import aboutGcetBg from '../../assets/images/home/about-gcet-bg.jpg';
@@ -372,7 +370,6 @@ const Partners = styled.section`
 `;
 
 const Home = () => {
-    useCloseMenu();
 
     return (
         <>

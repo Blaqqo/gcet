@@ -5,8 +5,6 @@ import Footer from '../../Footer';
 
 import { convertHexToRgba } from '../../../utils/convertHexToRgba';
 
-import useCloseMenu from '../../../hooks/useCloseMenu';
-
 import NetworkAssessmentHeroBg from '../../../assets/images/services/network-assessment-hero-bg.jpg';
 import NetworkAssessmentOverview from '../../../assets/images/services/network-assessment-overview.jpg';
 
@@ -286,7 +284,6 @@ const Partners = styled.section`
 `;
 
 const NetworkAssessment = () => {
-    useCloseMenu();
 
     return (
         <>

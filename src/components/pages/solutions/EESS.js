@@ -5,8 +5,6 @@ import Footer from '../../Footer';
 
 import { convertHexToRgba } from '../../../utils/convertHexToRgba';
 
-import useCloseMenu from '../../../hooks/useCloseMenu';
-
 import EESSHeroBg from '../../../assets/images/solutions/eess-hero-bg.jpg';
 import EESSOverview from '../../../assets/images/solutions/eess-overview.jpg';
 
@@ -159,7 +157,6 @@ const Partners = styled.section`
 `;
 
 const EESS = () => {
-  useCloseMenu();
 
   return (
     <>

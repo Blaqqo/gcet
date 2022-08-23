@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useEffect, useContext } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -93,8 +93,12 @@ const Nav = styled.nav`
     }
 `;
 
-const HamburgerMenu = () => {
-    const { state: { isMenuOpen } } = useContext(AppContext);
+const HamburgerMenu = () => {    
+    const { state: { isMenuOpen }, dispatch } = useContext(AppContext);
+
+    useEffect(() => {
+        return () => dispatch({ type: 'CLOSE_MENU' });
+    }, [dispatch]);
 
     return (
         <Menu>

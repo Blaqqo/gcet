@@ -5,8 +5,6 @@ import Footer from '../../Footer';
 
 import { convertHexToRgba } from '../../../utils/convertHexToRgba';
 
-import useCloseMenu from '../../../hooks/useCloseMenu';
-
 import ITAdvisoryHeroBg from '../../../assets/images/services/it-advisory-hero-bg.jpg';
 import ITAdvisoryOverview from '../../../assets/images/services/it-advisory-overview.jpg';
 
@@ -278,7 +276,6 @@ const Partners = styled.section`
 `;
 
 const ItAdvisory = () => {
-    useCloseMenu();
 
     return (
         <>

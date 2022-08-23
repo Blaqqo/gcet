@@ -5,8 +5,6 @@ import Footer from '../../Footer';
 
 import { convertHexToRgba } from '../../../utils/convertHexToRgba';
 
-import useCloseMenu from '../../../hooks/useCloseMenu';
-
 import BSMSHeroBg from '../../../assets/images/solutions/bsms-hero-bg.jpg';
 import BSMSOverview from '../../../assets/images/solutions/bsms-overview.jpg';
 
@@ -147,7 +145,6 @@ const Partners = styled.section`
 `;
 
 const BSMS = () => {
-  useCloseMenu();
 
   return (
     <>
