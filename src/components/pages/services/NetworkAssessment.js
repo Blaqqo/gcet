@@ -31,10 +31,10 @@ import BCInTheCloudLogo from '../../../assets/images/partners/bc-in-the-cloud.pn
 import alienVaultLogo from '../../../assets/images/partners/alien-vault.png';
 
 const Header = styled.header`
-    background-image: url(${NetworkAssessmentHeroBg}), linear-gradient(${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)});
+    background-image: linear-gradient(${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
+      url(${NetworkAssessmentHeroBg});
     background-repeat: no-repeat;
     background-size: cover;
-    background-blend-mode: multiply;
     color: ${({ theme }) => theme.colors.white};
 
     min-height: min(100vh, 520px);

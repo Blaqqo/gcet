@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import styled from 'styled-components';
 
@@ -8,6 +8,8 @@ import Navbar from '../Navbar';
 import Footer from '../Footer';
 
 import useCloseMenu from '../../hooks/useCloseMenu';
+
+import { convertHexToRgba } from '../../utils/convertHexToRgba';
 
 // images
 import heroImg from '../../assets/images/about/hero-img.png';
@@ -269,6 +271,7 @@ const Team = styled.section`
 
     .teammate__figc {            
         color: ${({ theme }) => theme.colors.white};
+        cursor: pointer;
         padding: .75em 0;
     }
 
@@ -292,19 +295,37 @@ const Team = styled.section`
         border: none;
         border-radius: 1.25em;
         max-width: 650px;
-        overflow: hidden;
+        max-height: 80vh;
+        overflow-y: auto;
         padding: 1.5em;
 
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        &::backdrop {
+            background: ${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .5)};
+        }
+    }
+
+    .dialog__close-btn {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 1.125rem;
+        outline: none;
+
+        display: block;
+        margin-left: auto;
     }
 
     .dialog__fig {
         display: flex;
         align-items: center;
         gap: 2em;
+
+        margin: .25em 0;
     }
 
     .dialog__img {
@@ -336,20 +357,54 @@ const Team = styled.section`
 `;
 
 const About = () => {
-    // const [showMdDialog, setShowMdDialog] = useState(false);
-    // const [showCooDialog, setShowCooDialog] = useState(false);
+    const [displayMdModal, setDisplayMdModal] = useState(false);
+    const [displayCooModal, setDisplayCooModal] = useState(false);
 
-    // const toggleMdDialog = () => {
-    //     setShowMdDialog((prevState) => !prevState);
-    // }
+    const mdDialogRef = useRef(null);
+    const cooDialogRef = useRef(null);
 
-    // const toggleCooDialog = () => {
 
-    //     setShowCooDialog(true);
-    //     if (showCooDialog) {
+    const showMdModal = (event) => {
+        if (event.target.nodeName !== 'IMG' && event.target.nodeName !== 'A') {
+            setDisplayMdModal(true);
+        }
+    }
 
-    //     }
-    // }
+    const hideMdModal = () => {
+        setDisplayMdModal(false);
+    }
+
+    const showCooModal = (event) => {
+        if (event.target.nodeName !== 'IMG' && event.target.nodeName !== 'A') {
+            setDisplayCooModal(true);
+        }
+    }
+
+    const hideCooModal = () => {
+        setDisplayCooModal(false);
+    }
+
+    useEffect(() => {
+        const dialog = mdDialogRef.current;
+
+        displayMdModal ?
+            dialog.showModal() :
+            dialog.close();
+
+
+        return () => dialog.close();
+    }, [displayMdModal]);
+
+    useEffect(() => {
+        const dialog = cooDialogRef.current;
+
+        displayCooModal ?
+            dialog.showModal() :
+            dialog.close();
+
+
+        return () => dialog.close();
+    }, [displayCooModal]);
 
     useCloseMenu();
 
@@ -475,11 +530,11 @@ const About = () => {
                 <Team>
                     <h2 className='team__heading'>Our Team</h2>
                     <ul className='team__list'>
-                        <li className='teammate'>
+                        <li onClick={showMdModal} className='teammate'>
                             <figure className='teammate__fig'>
                                 <img className='teammate__img' src={MDImg} alt="GCET Managing Director" />
                                 <figcaption className='teammate__figc'>
-                                    <h3 className='teammate__name'>Tayo Olubanke</h3>
+                                    <h3 className='teammate__name' onClick={showMdModal}>Tayo Olubanke</h3>
                                     <p className='teammate__role'>Managing Director</p>
                                     <div className='teammate__socials'>
                                         <a href="https://www.facebook.com" target='_blank' rel="noreferrer"><img src={faceBookIcon} alt="Facebook icon" title='Facebook' /></a>
@@ -490,11 +545,11 @@ const About = () => {
                                 </figcaption>
                             </figure>
                         </li>
-                        <li className='teammate'>
+                        <li onClick={showCooModal} className='teammate'>
                             <figure className='teammate__fig'>
                                 <img className='teammate__img' src={COOImg} alt="GCET COO" />
                                 <figcaption className='teammate__figc'>
-                                    <h3 className='teammate__name'>Solomon Awosina</h3>
+                                    <h3 className='teammate__name' onClick={showCooModal}>Solomon Awosina</h3>
                                     <p className='teammate__role'><abbr title="Chief Operating Officer">COO</abbr> / <abbr title="Chief Technology Officer">CTO</abbr></p>
                                     <div className='teammate__socials'>
                                         <a href="https://www.facebook.com" target='_blank' rel="noreferrer"><img src={faceBookIcon} alt="Facebook icon" title='Facebook' /></a>
@@ -507,40 +562,41 @@ const About = () => {
                         </li>
                     </ul>
 
-                    <dialog>
-                        <button>
+                    <dialog ref={mdDialogRef} className='dialog'>
+                        <button className='dialog__close-btn' onClick={hideMdModal}>
                             <FontAwesomeIcon icon='fa-solid fa-xmark' />
                         </button>
-                        <figure>
-                            <img src={MDImg} alt="GCET Managing Director" />
+                        <figure className='dialog__fig'>
+                            <img className='dialog__img' src={MDImg} alt="GCET Managing Director" />
                             <figcaption>
-                                <p>Tayo Olubanke</p>
-                                <p>Managing Director</p>
+                                <p className='dialog__name'>Tayo Olubanke</p>
+                                <p className='dialog__job-role'>Managing Director</p>
                             </figcaption>
                         </figure>
 
-                        <h3>Background</h3>
-                        <p>
+                        <h3 className='dialog__heading'>Background</h3>
+                        <p className='dialog__p'>
                             Tayo is an Applied Geophysics graduate from Federal University of Technology Akure. He is a result oriented I.T. Consultant
                             with extensive experience in designing IT cost saving solutions that empower organizations to meet business KPIs.
                         </p>
-                        <p>
+                        <p className='dialog__p'>
                             His experience in pre-sales spans a wide area of IT with primary area of focus being infrastructure solutions (both software
                             and hardware) - Enterprise Storage Systems, Cloud, Big Data, Business Intelligence /Data Warehouse, Backup and Recovery
                             Solutions, Business Continuity Solutions, ILM (information life-cycle Management).
                         </p>
-                        <p>
+                        <p className='dialog__p'>
                             He is also a successful Product Manager for BMC Software, Commvault, Citrix and Nimble Storage. The very first Nimble Storage
                             product manager in Nigeria and West Africa, Tayo is a certified enterprise storage expert, who has over 9 years' experience
                             working with enterprises within and outside Nigeria in Telecoms, Banks, Oil &amp; Gas and the Government Sector.
                         </p>
-                        <p>
+                        <p className='dialog__p'>
                             He has lead various teams in successful installation, configuration, deployment, upgrade and migration of many enterprise
                             storage systems.
                         </p>
                     </dialog>
-                    <dialog className='dialog'>
-                        <button>
+
+                    <dialog ref={cooDialogRef} className='dialog'>
+                        <button className='dialog__close-btn' onClick={hideCooModal}>
                             <FontAwesomeIcon icon='fa-solid fa-xmark' />
                         </button>
                         <figure className='dialog__fig'>

@@ -22,10 +22,10 @@ import coreViewLogo from '../../../assets/images/partners/coreview.png';
 
 
 const Header = styled.header`
-    background-image: url(${BESHeroBg}), linear-gradient(${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)});
+    background-image: linear-gradient(${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
+      url(${BESHeroBg});
     background-repeat: no-repeat;
     background-size: cover;
-    background-blend-mode: multiply;
     color: ${({ theme }) => theme.colors.white};
 
     min-height: min(100vh, 520px);

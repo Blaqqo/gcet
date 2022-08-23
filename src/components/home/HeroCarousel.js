@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
 import { convertHexToRgba } from "../../utils/convertHexToRgba";
 
@@ -97,13 +98,16 @@ const HeroCarousel = () => {
         <SwiperSC
             pagination={{ clickable: true }}
             loop={true}
-            // effect={'fade'}
+            effect='fade'
+            fadeEffect={{
+                crossFade: true
+            }}
             autoplay={{
                 delay: 5000,
                 disableOnInteraction: false
             }}
             modules={[Pagination, Autoplay, EffectFade]}>
-            <SwiperSlide className="hero__slide">
+            <SwiperSlide>
                 <figure className="hero__fig">
                     <figcaption className="hero__figc">
                         <h1 className="hero__heading">Grow Your Business</h1>
@@ -114,11 +118,11 @@ const HeroCarousel = () => {
                         </p>
                         <menu className="hero__link-btns">
                             <li>
-                                <Link className='hero__link-btn hero__link-btn--consultancy' to='/'>Get Consultancy</Link>
+                                <Link className='hero__link-btn hero__link-btn--consultancy' to='/consultancy'>Get Consultancy</Link>
 
                             </li>
                             <li>
-                                <Link className='hero__link-btn hero__link-btn--call' to='/'>Quick Call Back</Link>
+                                <a href='#request' className='hero__link-btn hero__link-btn--call'>Quick Call Back</a>
                             </li>
                         </menu>
                     </figcaption>
@@ -127,7 +131,7 @@ const HeroCarousel = () => {
                     </div>
                 </figure>
             </SwiperSlide>
-            <SwiperSlide className="hero__slide">
+            <SwiperSlide>
                 <figure className="hero__fig">
                     <figcaption className="hero__figc">
                         <h1 className="hero__heading">Plan Your Dream</h1>
@@ -136,12 +140,11 @@ const HeroCarousel = () => {
                         </p>
                         <menu className="hero__link-btns">
                             <li>
-                                <Link className='hero__link-btn hero__link-btn--consultancy' to='/'>Get Consultancy</Link>
+                                <Link className='hero__link-btn hero__link-btn--consultancy' to='/consultancy'>Get Consultancy</Link>
 
                             </li>
                             <li>
-
-                                <Link className='hero__link-btn hero__link-btn--call' to='/'>Quick Call Back</Link>
+                                <a href='#request' className='hero__link-btn hero__link-btn--call'>Quick Call Back</a>
                             </li>
                         </menu>
                     </figcaption>
@@ -150,20 +153,20 @@ const HeroCarousel = () => {
                     </div>
                 </figure>
             </SwiperSlide>
-            <SwiperSlide className="hero__slide">
+            <SwiperSlide>
                 <figure className="hero__fig">
                     <figcaption className="hero__figc">
                         <h1 className="hero__heading">Make Your Dream True</h1>
                         <p className="hero__p">
-                            We understand that all thriving global businesses rely on technology to sustain growth, we are your right partner for IT 
+                            We understand that all thriving global businesses rely on technology to sustain growth, we are your right partner for IT
                             initiatives, implementation and support.
                         </p>
                         <menu className="hero__link-btns">
                             <li>
-                                <Link className='hero__link-btn hero__link-btn--consultancy' to='/'>Get Consultancy</Link>
+                                <Link className='hero__link-btn hero__link-btn--consultancy' to='/consultancy'>Get Consultancy</Link>
                             </li>
                             <li>
-                                <Link className='hero__link-btn hero__link-btn--call' to='/'>Quick Call Back</Link>
+                                <a href='#request' className='hero__link-btn hero__link-btn--call'>Quick Call Back</a>
                             </li>
                         </menu>
                     </figcaption>

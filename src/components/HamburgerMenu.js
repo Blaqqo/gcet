@@ -26,7 +26,7 @@ const Aside = styled.aside`
 
   width: 100%;
   height: 100%;
-  overflow: scroll;
+  overflow-y: auto;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -63,6 +63,7 @@ const Nav = styled.nav`
     
     .ham__link {
         color: ${({ theme }) => theme.colors.white};
+        cursor: pointer;
         
         &--flex {
             display: flex;
@@ -135,13 +136,16 @@ const HamburgerMenu = () => {
 
                         </li>
                         <li className='ham__item'>
-                            <Link className='ham__link' to='/'>Blog</Link>
+                            <Link className='ham__link' to='/blog'>Blog</Link>
                         </li>
                         <li className='ham__item'>
-                            <Link className='ham__link' to='/'><FontAwesomeIcon icon='fa-solid fa-cart-shopping' /></Link>
+                            <Link className='ham__link' to='/contact'>Contact</Link>
                         </li>
                         <li className='ham__item'>
-                            <Link className='ham__link ham__link-btn' to='/'>
+                            <a href='https://store.gcetng.com' className='ham__link' title='Store'><FontAwesomeIcon icon='fa-solid fa-cart-shopping' /></a>
+                        </li>
+                        <li className='ham__item'>
+                            <Link className='ham__link ham__link-btn' to='/consultancy'>
                                 Get Consultancy
                             </Link>
                         </li>

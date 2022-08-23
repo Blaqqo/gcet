@@ -163,15 +163,15 @@ const Navbar = () => {
                             <li className='nav__subitem'><Link to='/services/network-assessment' className='nav__sublink'>Network Assessment Services</Link></li>
                         </ul>
                     </li>
-                    <li className='nav__item'><Link className='nav__link' to='/'>Blog</Link></li>
-                    <li className='nav__item'><Link className='nav__link' to='/'>Contact</Link></li>
+                    <li className='nav__item'><Link className='nav__link' to='/blog'>Blog</Link></li>
+                    <li className='nav__item'><Link className='nav__link' to='/contact'>Contact</Link></li>
                     <li className='nav__item'>
-                        <Link className='nav__link' to='/'>
+                        <a href='https://store.gcetng.com' className='nav__link' title='Store'>
                             <FontAwesomeIcon icon='fa-solid fa-cart-shopping' />
-                        </Link>
+                        </a>
                     </li>
                     <li className='nav__item'>
-                        <Link className="nav__link-btn" to='/'>
+                        <Link className="nav__link-btn" to='/consultancy'>
                             Get Consultancy
                         </Link>
                     </li>

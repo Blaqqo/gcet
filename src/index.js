@@ -12,6 +12,9 @@ import {
 
 import Home from './components/pages/Home';
 import About from './components/pages/About';
+import Blog from './components/pages/Blog';
+import ContactUs from './components/pages/ContactUs';
+import GetConsultancy from './components/pages/GetConsultancy';
 
 // Solutions
 import EESS from './components/pages/solutions/EESS';
@@ -35,6 +38,9 @@ root.render(
           <Route index element={<Home />} />
 
           <Route path='about' element={<About />} />
+          <Route path='blog' element={<Blog />} />
+          <Route path='contact' element={<ContactUs />} />
+          <Route path='consultancy' element={<GetConsultancy />} />
 
           <Route path='solutions'>
             <Route index element={<Navigate to='eess' />} />
@@ -53,6 +59,7 @@ root.render(
             <Route path='it-advisory' element={<ItAdvisory />} />
             <Route path='network-assessment' element={<NetworkAssessment />} />
           </Route>
+
         </Route>
 
       </Routes>

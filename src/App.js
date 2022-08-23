@@ -20,6 +20,11 @@ const BaseStyles = createGlobalStyle`
     padding: 0;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 1.5em;
+  }
+
   menu,
   ul {
     list-style: none;

@@ -393,7 +393,7 @@ const Home = () => {
                             organizational and business goals.
                         </p>
 
-                        <Link className='services__link' to='/'>Get Consultancy</Link>
+                        <Link className='services__link' to='/consultancy'>Get Consultancy</Link>
                     </div>
                 </Services>
                 <About>
@@ -442,7 +442,7 @@ const Home = () => {
                         </figcaption>
                     </figure>
                 </Experience>
-                <Request>
+                <Request id='request'>
                     <div className='request__text'>
                         <h2>Request for a Call Back</h2>
                         <p>
