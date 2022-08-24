@@ -8,11 +8,6 @@ const theme = {
         mediumBlue: '#456387',
         darkBlue: '#0A274B',
         darkGray: '#111922'
-    },
-    font: {
-        weights: {
-            bold: 700
-        }
     }
 };
 
