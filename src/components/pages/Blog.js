@@ -15,10 +15,13 @@ import articleImg5 from '../../assets/images/blog/article-5.jpg';
 import articleImg6 from '../../assets/images/blog/article-6.jpg';
 import articleImg7 from '../../assets/images/blog/article-7.jpg';
 import articleImg8 from '../../assets/images/blog/article-8.jpg';
+import articleImg9 from '../../assets/images/blog/article-9.jpg';
+import articleImg10 from '../../assets/images/blog/article-10.jpg';
 
 const Header = styled.header`
     background: ${({ theme }) => theme.colors.mediumBlue};
     padding: 1.25em 5%;
+    min-height: 105px;
 
     @media (min-width: 1100px) {
       & {
@@ -138,26 +141,90 @@ const Blog = () => {
             <Main>
                 <Intro>
                     <h1 className='intro__heading'>Get Informed!</h1>
-                    <p>Read the latest news here on our platform
-
+                    <p>Read the latest news here on our platform</p>
                         <form className='intro__form'>
                             <input className='intro__input' type="search" name="search" id="search" placeholder='Search for keywords or trends' required />
                             <button className='intro__btn' type="submit">Search</button>
                         </form>
-                    </p>
                 </Intro>
                 <ArticlesContainer>
                     <section className='articles'>
-                        <Article articleImg={articleImg1} />
-                        <Article articleImg={articleImg2} />
+                        <Article image={articleImg1}
+                            author='Paul Ducklin'
+                            title='Laptop denial-of-service via music: the 1980s R&amp;B song with a CVE!'
+                            text="You've probably heard the old joke: “Humour in the public service? It’s no laughing matter!”
+                            
+                            But the thing with downbeat, blanket judgements of this sort is that it only takes a single counter-example to disprove"
+                            link='https://nakedsecurity.sophos.com/2022/08/22/laptop-denial-of-service-via-music-the-1980s-rb-song-with-a-cve/'
+                            date='2022-08-22'
+                        />
+                        <Article image={articleImg2}
+                            author='Paul Ducklin'
+                            title='Apple patches double zero-day in browser and kernel - update now!'
+                            text="Apple just pushed out an emergency update for two zero-day bugs that are apparently actively being exploited.
+
+                            There's a remote code execution hole (RCE) dubbed CVE-2022-32893 in Apple's HTML rendering software (WebKit), by means of which a booby trapped web page can trick iPhones, iPads and Macs into running unauthorised and untrusted software code"
+                            link='https://nakedsecurity.sophos.com/2022/08/18/apple-patches-double-zero-day-in-browser-and-kernel-update-now/'
+                            date='2022-08-18'
+                        />
                     </section>
                     <aside className='aside'>
-                        <SideArticle image={articleImg3} author='Frank Korg' title='Alleged Kaseya ransomware attacker arrives in Texas for trial' />
-                        <SideArticle image={articleImg4} author='Abel Johanns' title='OpenSSL patches infinite-loop DoS bug in certificate verification' />
-                        <SideArticle image={articleImg5} author='Dowell McPherson' title='S3 Ep74: Cybercrime busts, Apple patches, Pi Day, and disconnects' />
-                        <SideArticle image={articleImg6} author='Phil Abraham' title="Beware bogus Betas - cryptocoin scammers abuse Apple's" />
-                        <SideArticle image={articleImg7} author='Frank Korg' title='CISA warning: “Russian actors bypassed 2FA” - what happened' />
-                        <SideArticle image={articleImg8} author='George Run' title='Apple patches 87 security holes - from iPhones and Macs to Wind' />
+                        <SideArticle
+                            image={articleImg3}
+                            author='Paul Ducklin'
+                            title='S3 Ep96: Zoom 0-day, AEPIC leak, Conti reward, healthcare security [Audio + Text]'
+                            link='https://nakedsecurity.sophos.com/2022/08/18/s3-ep96-zoom-0-day-aepic-leak-conti-reward-heathcare-security-audio-text/'
+                            date='2022-08-18'
+                        />
+                        <SideArticle
+                            image={articleImg4}
+                            author='Paul Ducklin'
+                            title='Chrome browser gets 11 security fixes with 1 zero-day - update now!'
+                            link='https://nakedsecurity.sophos.com/2022/08/17/chrome-browser-gets-11-security-fixes-with-1-zero-day-update-now/'
+                            date='2022-08-17'
+                        />
+                        <SideArticle
+                            image={articleImg5}
+                            author='Naked Secret Writer'
+                            title='US offers reward “up to $10 million” for information about the Conti gang'
+                            link='https://nakedsecurity.sophos.com/2022/08/16/us-offers-reward-up-to-10-million-for-information-about-the-conti-gang/'
+                            date='2022-08-16'
+                        />
+                        <SideArticle
+                            image={articleImg6}
+                            author='Paul Ducklin'
+                            title='Zoom for Mac patches critical bug - update now!'
+                            link='https://nakedsecurity.sophos.com/2022/08/15/zoom-for-mac-patches-get-root-bug-update-now/'
+                            date='2022-08-15'
+                        />
+                        <SideArticle
+                            image={articleImg7}
+                            author='Paul Ducklin'
+                            title='S3 Ep95: Slack leak, Github onslaught, and post-quantum crypto [Audio + Text]'
+                            link='https://nakedsecurity.sophos.com/2022/08/11/s3-ep95-slack-leak-github-onslaught-and-post-quantum-crypto-audio-text/'
+                            date='2022-08-11'
+                        />
+                        <SideArticle
+                            image={articleImg8}
+                            author='Paul Ducklin'
+                            title="APIC/EPIC! Intel chips leak secrets even the kernel shouldn't see"
+                            link='https://nakedsecurity.sophos.com/2022/08/10/apic-epic-intel-chips-leak-secrets-even-the-kernel-shouldnt-see/'
+                            date='2022-08-10'
+                        />
+                        <SideArticle
+                            image={articleImg9}
+                            author='Paul Ducklin'
+                            title='Slack admits to leaking hashed passwords for five years'
+                            link='https://nakedsecurity.sophos.com/2022/08/08/slack-admits-to-leaking-hashed-passwords-for-three-months/'
+                            date='2022-08-08'
+                        />
+                        <SideArticle
+                            image={articleImg10}
+                            author='Paul Ducklin'
+                            title='Traffic Light Protocol for cybersecurity responders gets a revamp'
+                            link='https://nakedsecurity.sophos.com/2022/08/05/traffic-light-protocol-for-cybersecurity-responders-gets-a-revamp/'
+                            date='2022-08-05'
+                        />
                     </aside>
                 </ArticlesContainer>
             </Main>

@@ -28,6 +28,8 @@ import BES from './components/pages/solutions/BES';
 import ItAdvisory from './components/pages/services/ItAdvisory';
 import NetworkAssessment from './components/pages/services/NetworkAssessment';
 
+import AdminLogin from './components/pages/AdminLogin';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -59,6 +61,8 @@ root.render(
             <Route path='it-advisory' element={<ItAdvisory />} />
             <Route path='network-assessment' element={<NetworkAssessment />} />
           </Route>
+
+          <Route path='/admin/login' element={<AdminLogin />} />
 
         </Route>
 

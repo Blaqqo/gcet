@@ -18,7 +18,6 @@ import forescoutLogo from '../../../assets/images/partners/forescout.png';
 import coreViewLogo from '../../../assets/images/partners/coreview.png';
 
 
-
 const Header = styled.header`
     background-image: linear-gradient(${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
       url(${BESHeroBg});

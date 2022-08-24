@@ -17,7 +17,6 @@ import huaweiLogo from '../../../assets/images/partners/huawei.png';
 import ciscoLogo from '../../../assets/images/partners/cisco.png';
 
 
-
 const Header = styled.header`
     background-image: linear-gradient(${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
       url(${ISSHeroBg});

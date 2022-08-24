@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -21,6 +21,7 @@ const Nav = styled.nav`
     font-weight: 600;
     position: relative;
     z-index: 10;
+
     
     @media (max-width: 800px) {
         & {
@@ -90,7 +91,7 @@ const Nav = styled.nav`
         display: none;
         visibility: hidden;
         opacity: 0;
-
+        
         position: absolute;
         left: 0;
         transition: all .5s ease-in-out;
@@ -113,6 +114,10 @@ const Nav = styled.nav`
         }
     }
     
+    .active {
+        color: ${({theme}) => theme.colors.lightBlue};
+    }
+    
     .nav__link-btn {
         background: ${({ theme }) => theme.colors.lightBlue};
         color: ${({ theme }) => theme.colors.white};
@@ -120,7 +125,7 @@ const Nav = styled.nav`
         display: block;
         padding: .625em .875em;
     }
-
+    
     @media (min-width: 800px) {
         .nav__menu {
             display: block;
@@ -163,7 +168,7 @@ const Navbar = () => {
                             <li className='nav__subitem'><Link to='/services/network-assessment' className='nav__sublink'>Network Assessment Services</Link></li>
                         </ul>
                     </li>
-                    <li className='nav__item'><Link className='nav__link' to='/blog'>Blog</Link></li>
+                    <li className='nav__item'><NavLink className='nav__link' to='/blog'>Blog</NavLink></li>
                     <li className='nav__item'><Link className='nav__link' to='/contact'>Contact</Link></li>
                     <li className='nav__item'>
                         <a href='https://store.gcetng.com' className='nav__link' title='Store'>

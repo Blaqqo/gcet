@@ -47,6 +47,10 @@ const Article = styled.article`
         overflow: hidden;
     }
 
+    .article__link {
+        color: inherit;
+    }
+
     @media (min-width: 300px) {
         .article__fig {
             flex-direction: row;
@@ -54,7 +58,7 @@ const Article = styled.article`
     }
 `;
 
-const SideArticle = ({ image, title, author }) => {
+const SideArticle = ({ image, title, author, link, date }) => {
     return (
         <Article>
             <figure className='article__fig'>
@@ -62,9 +66,9 @@ const SideArticle = ({ image, title, author }) => {
                 <figcaption>
                     <div className="article__info">
                         <address className='article__author'>{author}</address>
-                        <time className='article__time' dateTime='2022-03-23'>23rd March 2022</time>
+                        <time className='article__time' dateTime={date}>{new Date(date).toDateString()}</time>
                     </div>
-                    <h3 className='article__heading'>{title}</h3>
+                    <h3 className='article__heading'><a className='article__link' href={link} target='_blank' rel="noreferrer">{title}</a></h3>
                 </figcaption>
             </figure>
         </Article>

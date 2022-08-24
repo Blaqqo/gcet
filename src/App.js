@@ -6,11 +6,11 @@ import { AppContextWrapper } from "./contexts/app";
 import { ThemeContextWrapper } from "./contexts/theme";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faEnvelope, faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { faCartShopping, faPhone, faChevronDown, faCaretRight, faCaretDown, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
-library.add(faCartShopping, faPhone, faEnvelope, faChevronDown, faCaretRight, faCaretDown, faXmark);
+library.add(faCartShopping, faPhone, faEnvelope, faChevronDown, faCaretRight, faCaretDown, faXmark, faEye, faEyeSlash);
 
 const BaseStyles = createGlobalStyle`
   * {

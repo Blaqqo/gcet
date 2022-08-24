@@ -1,8 +1,4 @@
-import { Link } from 'react-router-dom';
-
 import styled from 'styled-components';
-
-import Comment from './Comment';
 
 import { convertHexToRgba } from '../../utils/convertHexToRgba';
 
@@ -42,13 +38,17 @@ const ArticleSC = styled.article`
 
     .article__text {
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
+
+    .article__link {
+        color: inherit;
+    }
 `;
 
-const ReadMoreLink = styled(Link)`
+const ReadMoreLink = styled.a`
     background: transparent;
     border: none;
     color: ${({ theme }) => theme.colors.lightBlue};
@@ -57,27 +57,22 @@ const ReadMoreLink = styled(Link)`
     margin: .5em 0;
 `;
 
-const Article = ({ articleImg }) => {
+const Article = ({ image, title, author, link, text, date }) => {
 
     return (
         <ArticleSC>
             <figure>
-                <img src={articleImg} alt="" />
+                <img src={image} alt="" />
                 <figcaption>
                     <div className="article__info">
-                        <address className='article__author'>Paul Ducklin</address>
-                        <time className='article__time' dateTime='2022-03-23'>23rd March 2022</time>
+                        <address className='article__author'>{author}</address>
+                        <time className='article__time' dateTime={date}>{new Date(date).toDateString()}</time>
                     </div>
-                    <h2 className='article__heading'>Serious Security: DEADBOLT - the ransomware that goes straight for your backups</h2>
+                    <h2 className='article__heading'><a className='article__link' href={link} target='_blank' rel="noreferrer">{title}</a></h2>
                     <p className='article__text'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim ornare odio ultrices quis enim mauris id dictumst amet. Leo cras
-                        tempus in in quam. Odio risus ultrices ut ut turpis nulla porta lacus. Amet molestie ut pretium sed dui ullamcorper. Nec, vel porttitor
-                        posuere arcu, placerat at arcu. Porttitor porta congue sociis nunc enim diam. Aenean donec nisl et elit turpis auctor
-                        massa
+                        {text}
                     </p>
-                    <ReadMoreLink to=''>Read more</ReadMoreLink>
-
-                    <Comment />
+                    <ReadMoreLink href={link} target='_blank' rel='noreferrer'>Read more</ReadMoreLink>
                 </figcaption>
             </figure>
         </ArticleSC>

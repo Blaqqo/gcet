@@ -15,7 +15,6 @@ import essentryLogo from '../../../assets/images/partners/essentry.png';
 import cyberSocLogo from '../../../assets/images/partners/cyber-soc.png';
 
 
-
 const Header = styled.header`
     background-image: linear-gradient(${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
       url(${BSMSHeroBg});
