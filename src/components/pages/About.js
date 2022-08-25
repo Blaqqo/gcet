@@ -38,7 +38,6 @@ const Header = styled.header`
     background-position: left bottom, right top;
     color: ${({ theme }) => theme.colors.white};
 
-    min-height: 100vh;
     padding: 2em 5%;
 
     .hero__fig {
@@ -124,7 +123,7 @@ const AboutSC = styled.section`
     }
     
     .about__figc {
-        max-width: 600px;
+        max-width: 558px;
     }
 
     .about__p {
@@ -275,6 +274,10 @@ const Team = styled.section`
 
     .teammate__name {
         font-weight: 600;
+        
+        &:hover {
+            color: ${({ theme }) => theme.colors.lightBlue};
+        }
     }
 
     .teammate__role {

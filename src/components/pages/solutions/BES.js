@@ -19,7 +19,7 @@ import coreViewLogo from '../../../assets/images/partners/coreview.png';
 
 
 const Header = styled.header`
-    background-image: linear-gradient(${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
+    background-image: linear-gradient(${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
       url(${BESHeroBg});
     background-repeat: no-repeat;
     background-size: cover;
@@ -66,7 +66,7 @@ const Overview = styled.section`
   }
 
   .overview__right {
-    line-height: 2;
+    line-height: 2.1;
 
     > * {
       margin-bottom: 1.5em;
@@ -126,16 +126,23 @@ const Partners = styled.section`
         place-items: center;
     }
 
+    .partners__link {
+      box-shadow: 0px 4px 4px rgba(3, 169, 244, 0.11);
+      border-radius: .625em;
+      
+      display: block;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      max-width: 160px;
+      padding: .75em;
+    }
+    
     .partners__logo {
-          box-shadow: 0px 4px 4px rgba(3, 169, 244, 0.11);
-          border-radius: .625em;
-          height: 100%;
-          width: 100%;
-          max-width: 160px;
-          
-          overflow: hidden;
-          object-fit: scale-down;
-          padding: .75em;
+      height: 100%;
+      width: 100%;
+      
+      object-fit: scale-down;
     }
 
     @media (min-width: 1100px) {
@@ -186,13 +193,41 @@ const BES = () => {
           <h2 className='partners__heading'>Our Partners</h2>
 
           <div className="partners__logos">
-            <div className="partners__logo-c"><img className='partners__logo' src={BMCLogo} alt="BMS logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={entuityLogo} alt="Entuity logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={infiniteBlueLogo} alt="Infinite Blue logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={manageEngineLogo} alt="Manage Engine logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={solarWindsLogo} alt="Solarwinds logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={forescoutLogo} alt="Forescout logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={coreViewLogo} alt="Coreview logo" /></div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.bmc.com' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={BMCLogo} alt="BMC logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.parkplacetechnologies.com/entuity' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={entuityLogo} alt="Entuity logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://infiniteblue.com' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={infiniteBlueLogo} alt="Infinite Blue logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.manageengine.com' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={manageEngineLogo} alt="Manage Engine logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.solarwinds.com' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={solarWindsLogo} alt="Solarwinds logo" />
+              </a>
+            </div>
+            <div className='partners__logo-c'>
+              <a className='partners__link' href='https://www.forescout.com/company/' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={forescoutLogo} alt="Forescout logo" />
+              </a>
+            </div>
+            <div className='partners__logo-c'>
+              <a className='partners__link' href='https://www.coreview.com/' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={coreViewLogo} alt="CoreView logo" />
+              </a>
+            </div>
           </div>
         </Partners>
       </Main>

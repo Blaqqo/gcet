@@ -64,6 +64,9 @@ root.render(
 
           <Route path='/admin/login' element={<AdminLogin />} />
 
+          {/* Redirects all non-existing pages to the home page */}
+          <Route path='*' element={<Navigate to='' />} />
+
         </Route>
 
       </Routes>

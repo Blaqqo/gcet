@@ -16,7 +16,7 @@ import manageEngineLogo from '../../../assets/images/partners/manage-engine.png'
 
 
 const Header = styled.header`
-    background-image: linear-gradient(${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
+    background-image: linear-gradient(${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
       url(${CMSHeroBg});
     background-repeat: no-repeat;
     background-size: cover;
@@ -63,7 +63,7 @@ const Overview = styled.section`
   }
 
   .overview__right {
-    line-height: 2;
+    line-height: 2.1;
 
     > * {
       margin-bottom: 1.5em;
@@ -123,16 +123,23 @@ const Partners = styled.section`
         place-items: center;
     }
 
+    .partners__link {
+      box-shadow: 0px 4px 4px rgba(3, 169, 244, 0.11);
+      border-radius: .625em;
+      
+      display: block;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      max-width: 160px;
+      padding: .75em;
+    }
+    
     .partners__logo {
-        box-shadow: 0px 4px 4px rgba(3, 169, 244, 0.11);
-        border-radius: .625em;
-        height: 100%;
-        width: 100%;
-        max-width: 160px;
-        
-        overflow: hidden;
-        object-fit: scale-down;
-        padding: .75em;
+      height: 100%;
+      width: 100%;
+      
+      object-fit: scale-down;
     }
 
     @media (min-width: 1100px) {
@@ -197,10 +204,26 @@ const CMS = () => {
           <h2 className='partners__heading'>Our Partners</h2>
 
           <div className="partners__logos">
-            <div className="partners__logo-c"><img className='partners__logo' src={AWSLogo} alt="AWS logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={azureLogo} alt="Azure logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={citrixLogo} alt="Citrix logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={manageEngineLogo} alt="Manage Engine logo" /></div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://aws.amazon.com' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={AWSLogo} alt="AWS logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://azure.microsoft.com' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={azureLogo} alt="Azure logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href="https://www.citrix.com" target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={citrixLogo} alt="Citrix logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.manageengine.com' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={manageEngineLogo} alt="Manage Engine logo" />
+              </a>
+            </div>
           </div>
         </Partners>
       </Main>

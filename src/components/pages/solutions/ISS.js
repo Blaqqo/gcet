@@ -18,7 +18,7 @@ import ciscoLogo from '../../../assets/images/partners/cisco.png';
 
 
 const Header = styled.header`
-    background-image: linear-gradient(${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
+    background-image: linear-gradient(${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
       url(${ISSHeroBg});
     background-repeat: no-repeat;
     background-size: cover;
@@ -66,7 +66,7 @@ const Overview = styled.section`
   }
 
   .overview__right {
-    line-height: 2;
+    line-height: 2.1;
 
     > * {
       margin-bottom: 1.5em;
@@ -126,16 +126,23 @@ const Partners = styled.section`
         place-items: center;
     }
 
+    .partners__link {
+      box-shadow: 0px 4px 4px rgba(3, 169, 244, 0.11);
+      border-radius: .625em;
+      
+      display: block;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      max-width: 160px;
+      padding: .75em;
+    }
+    
     .partners__logo {
-        box-shadow: 0px 4px 4px rgba(3, 169, 244, 0.11);
-        border-radius: .625em;
-        height: 100%;
-        width: 100%;
-        max-width: 160px;
-        
-        overflow: hidden;
-        object-fit: scale-down;
-        padding: .75em;
+      height: 100%;
+      width: 100%;
+      
+      object-fit: scale-down;
     }
 
     @media (min-width: 1100px) {
@@ -184,12 +191,36 @@ const ISS = () => {
           <h2 className='partners__heading'>Our Partners</h2>
 
           <div className="partners__logos">
-            <div className="partners__logo-c"><img className='partners__logo' src={hewlettPackardEnterpriseLogo} alt="Hewlett Packard Enterprise logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={dellLogo} alt="Dell logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={brocadeLogo} alt="Brocade logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={netAppLogo} alt="NetApp logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={huaweiLogo} alt="Huawei logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={ciscoLogo} alt="Cisco logo" /></div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.hpe.com' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={hewlettPackardEnterpriseLogo} alt="Hewlett Packard Enterprise logo" />
+              </a>
+            </div>
+            <div className='partners__logo-c'>
+              <a className='partners__link' href='https://www.dell.com' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={dellLogo} alt="Dell logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.broadcom.com' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={brocadeLogo} alt="Brocade logo" />
+              </a>
+            </div>
+            <div className='partners__logo-c'>
+              <a className='partners__link' href='https://www.netapp.com/' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={netAppLogo} alt="NetApp logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.huawei.com/en' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={huaweiLogo} alt="Huawei logo" />
+              </a>
+            </div>
+            <div className='partners__logo-c'>
+                <a className='partners__link' href='https://www.cisco.com/c/en_dz/index.html' target='_blank' rel='noreferrer'>
+                  <img className='partners__logo' src={ciscoLogo} alt="Cisco logo" />
+                </a>
+            </div>
           </div>
         </Partners>
       </Main>

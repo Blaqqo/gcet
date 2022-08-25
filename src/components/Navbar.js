@@ -22,7 +22,6 @@ const Nav = styled.nav`
     position: relative;
     z-index: 10;
 
-    
     @media (max-width: 800px) {
         & {
             ${({ $isMenuOpen }) => $isMenuOpen && `
@@ -85,7 +84,7 @@ const Nav = styled.nav`
 
     .nav__submenu {
         border-radius: .125em;
-        padding-top: 1em;
+        padding-top: .5em;
         min-width: 200px;
 
         display: none;
@@ -144,19 +143,19 @@ const Navbar = () => {
 
             <div className="nav__menu">
                 <ul className="nav__list">
-                    <li className='nav__item'><Link className='nav__link' to='/about'>About</Link></li>
+                    <li className='nav__item'><NavLink className='nav__link' to='/about'>About</NavLink></li>
                     <li className='nav__item'>
                         <span className='nav__link nav__link--flex' aria-haspopup={true}>Solutions
                             <FontAwesomeIcon icon='fa-solid fa-chevron-down' />
                         </span>
 
                         <ul className="nav__submenu" aria-label='submenu'>
-                            <li className='nav__subitem'><Link to='/solutions/eess' className='nav__sublink'>Enterprise Security Solutions &amp; Services (ESSS)</Link></li>
-                            <li className='nav__subitem'><Link to='/solutions/iss' className='nav__sublink'>Infrastructure Solutions &amp; Services (ISS)</Link></li>
-                            <li className='nav__subitem'><Link to='/solutions/bsms' className='nav__sublink'>Business Service Management Solutions</Link></li>
-                            <li className='nav__subitem'><Link to='/solutions/ens' className='nav__sublink'>Enterprise Networking Solutions</Link></li>
-                            <li className='nav__subitem'><Link to='/solutions/cms' className='nav__sublink'>Cloud and Mobile Solutions</Link></li>
-                            <li className='nav__subitem'><Link to='/solutions/bes' className='nav__sublink'>Business Enterprise Software</Link></li>
+                            <li className='nav__subitem'><NavLink to='/solutions/eess' className='nav__sublink'>Enterprise Security Solutions &amp; Services (ESSS)</NavLink></li>
+                            <li className='nav__subitem'><NavLink to='/solutions/iss' className='nav__sublink'>Infrastructure Solutions &amp; Services (ISS)</NavLink></li>
+                            <li className='nav__subitem'><NavLink to='/solutions/bsms' className='nav__sublink'>Business Service Management Solutions</NavLink></li>
+                            <li className='nav__subitem'><NavLink to='/solutions/ens' className='nav__sublink'>Enterprise Networking Solutions</NavLink></li>
+                            <li className='nav__subitem'><NavLink to='/solutions/cms' className='nav__sublink'>Cloud and Mobile Solutions</NavLink></li>
+                            <li className='nav__subitem'><NavLink to='/solutions/bes' className='nav__sublink'>Business Enterprise Software</NavLink></li>
                         </ul>
                     </li>
                     <li className='nav__item'>
@@ -164,12 +163,12 @@ const Navbar = () => {
                             <FontAwesomeIcon icon='fa-solid fa-chevron-down' />
                         </span>
                         <ul className="nav__submenu" aria-label='submenu'>
-                            <li className='nav__subitem'><Link to='/services/it-advisory' className='nav__sublink'>IT Advisory and Managed Services</Link></li>
-                            <li className='nav__subitem'><Link to='/services/network-assessment' className='nav__sublink'>Network Assessment Services</Link></li>
+                            <li className='nav__subitem'><NavLink to='/services/it-advisory' className='nav__sublink'>IT Advisory and Managed Services</NavLink></li>
+                            <li className='nav__subitem'><NavLink to='/services/network-assessment' className='nav__sublink'>Network Assessment Services</NavLink></li>
                         </ul>
                     </li>
                     <li className='nav__item'><NavLink className='nav__link' to='/blog'>Blog</NavLink></li>
-                    <li className='nav__item'><Link className='nav__link' to='/contact'>Contact</Link></li>
+                    <li className='nav__item'><NavLink className='nav__link' to='/contact'>Contact</NavLink></li>
                     <li className='nav__item'>
                         <a href='https://store.gcetng.com' className='nav__link' title='Store'>
                             <FontAwesomeIcon icon='fa-solid fa-cart-shopping' />

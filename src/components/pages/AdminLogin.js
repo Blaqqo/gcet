@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -125,7 +127,9 @@ const AdminLogin = () => {
     return (
         <>
             <Header>
-                <img src={logo} alt="GCET logo" />
+                <Link to='/'>
+                    <img src={logo} alt="GCET logo" />
+                </Link>
             </Header>
             <main>
 

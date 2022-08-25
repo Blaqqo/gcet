@@ -29,7 +29,7 @@ import BCInTheCloudLogo from '../../../assets/images/partners/bc-in-the-cloud.pn
 import alienVaultLogo from '../../../assets/images/partners/alien-vault.png';
 
 const Header = styled.header`
-    background-image: linear-gradient(${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
+    background-image: linear-gradient(${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
       url(${NetworkAssessmentHeroBg});
     background-repeat: no-repeat;
     background-size: cover;
@@ -86,7 +86,7 @@ const Overview = styled.section`
   }
 
   .overview__right {
-    line-height: 2;
+    line-height: 2.1;
 
     > * {
       margin: 1.5em 0;
@@ -307,7 +307,7 @@ const NetworkAssessment = () => {
                             infrastructure in need of maintenance, risk assessment and future investment.
                         </p>
                         <p>
-                            We will produce the tasks needed to support the network assessment. The overall scope will feature a generalization 
+                            We will produce the tasks needed to support the network assessment. The overall scope will feature a generalization
                             of the work that needs to be accomplished. The following areas will have a deep dive session:
                         </p>
                         <ul className='overview__list'>
@@ -395,24 +395,96 @@ const NetworkAssessment = () => {
                             <h2 className="partners__heading">Our Partners</h2>
                         </figcaption>
                         <div className='partners__logos'>
-                            <div className='partners__logo-c'><img className='partners__logo' src={HPLogo} alt="HP logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={dellLogo} alt="Dell logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={nimbleStorageLogo} alt="Nimble Storage logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={netAppLogo} alt="NetApp logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={veeamLogo} alt="Veeam logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={barracudaLogo} alt="Barracudalogo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={coreViewLogo} alt="CoreView logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={commVaultLogo} alt="CommVault logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={VMWareLogo} alt="VMWare logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={ciscoLogo} alt="Cisco logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={sophosLogo} alt="Sophos logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={f5Logo} alt="f5 logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={microsoftLogo} alt="Microsoft logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={trendMicroLogo} alt="Trend Micro logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={forescoutLogo} alt="Forescout logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={fortinetLogo} alt="Fortinet logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={BCInTheCloudLogo} alt="BC in the Cloud logo" /></div>
-                            <div className='partners__logo-c'><img className='partners__logo' src={alienVaultLogo} alt="AlienVault logo" /></div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.hp.com/emea_africa-en/home.html' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={HPLogo} alt="HP logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.dell.com' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={dellLogo} alt="Dell logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.hpe.com/us/en/storage/nimble.html' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={nimbleStorageLogo} alt="Nimble Storage logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.netapp.com/' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={netAppLogo} alt="NetApp logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.veeam.com/' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={veeamLogo} alt="Veeam logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.barracuda.com/' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={barracudaLogo} alt="Barracudalogo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.coreview.com/' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={coreViewLogo} alt="CoreView logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.commvault.com/' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={commVaultLogo} alt="CommVault logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.vmware.com/company.html' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={VMWareLogo} alt="VMWare logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.cisco.com/c/en_dz/index.html' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={ciscoLogo} alt="Cisco logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.sophos.com/en-us/company' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={sophosLogo} alt="Sophos logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.f5.com/' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={f5Logo} alt="f5 logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.microsoft.com' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={microsoftLogo} alt="Microsoft logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.trendmicro.com' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={trendMicroLogo} alt="Trend Micro logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.forescout.com/company/' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={forescoutLogo} alt="Forescout logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://www.fortinet.com' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={fortinetLogo} alt="Fortinet logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://bcinthecloud.com/' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={BCInTheCloudLogo} alt="BC in the Cloud logo" />
+                                </a>
+                            </div>
+                            <div className='partners__logo-c'>
+                                <a href='https://cybersecurity.att.com/' target='_blank' rel='noreferrer'>
+                                    <img className='partners__logo' src={alienVaultLogo} alt="AlienVault logo" />
+                                </a>
+                            </div>
                         </div>
                     </figure>
                 </Partners>

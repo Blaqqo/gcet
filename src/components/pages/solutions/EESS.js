@@ -18,7 +18,7 @@ import coreviewLogo from '../../../assets/images/partners/coreview.png';
 
 
 const Header = styled.header`
-    background-image: linear-gradient(${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({theme}) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
+    background-image: linear-gradient(${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}, ${({ theme }) => convertHexToRgba(theme.colors.mediumBlue, .7)}), 
       url(${EESSHeroBg});
 
     background-repeat: no-repeat;
@@ -70,7 +70,7 @@ const Overview = styled.section`
   }
 
   .overview__right {
-    line-height: 2;
+    line-height: 2.1;
 
     > * {
       margin-bottom: 1.5em;
@@ -125,26 +125,32 @@ const Partners = styled.section`
       
       margin-top: 3em;
     }
-
+    
     .partners__logo-c {
-        flex: max(calc(25% - 2.5em), 160px);
-        height: 100px;
-        
-        display: grid;
-        place-items: center;
-        
+      flex: max(calc(25% - 2.5em), 160px);
+      min-height: 100px;
+      
+      display: grid;
+      place-items: center;
     }
 
+    .partners__link {
+      box-shadow: 0px 4px 4px rgba(3, 169, 244, 0.11);
+      border-radius: .625em;
+      
+      display: block;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      max-width: 160px;
+      padding: .75em;
+    }
+    
     .partners__logo {
-        box-shadow: 0px 4px 4px rgba(3, 169, 244, 0.11);
-        border-radius: .625em;
-        height: 100%;
-        width: 100%;
-        max-width: 160px;
-        
-        overflow: hidden;
-        object-fit: scale-down;
-        padding: .75em;
+      height: 100%;
+      width: 100%;
+      
+      object-fit: scale-down;
     }
 
     @media (min-width: 1100px) {
@@ -198,12 +204,36 @@ const EESS = () => {
           <h2 className='partners__heading'>Our Partners</h2>
 
           <div className="partners__logos">
-            <div className="partners__logo-c"><img className='partners__logo' src={paloaltoNetworksLogo} alt="Paloalto Networks logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={fortinetLogo} alt="Fortinet logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={f5Logo} alt="f5 logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={ciscoLogo} alt="Cisco logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={barracudaLogo} alt="Barracuda logo" /></div>
-            <div className="partners__logo-c"><img className='partners__logo' src={coreviewLogo} alt="Coreview logo" /></div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.paloaltonetworks.com/' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={paloaltoNetworksLogo} alt="Paloalto Networks logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.fortinet.com' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={fortinetLogo} alt="Fortinet logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.f5.com/' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={f5Logo} alt="f5 logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.cisco.com/c/en_dz/index.html' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={ciscoLogo} alt="Cisco logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.barracuda.com/' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={barracudaLogo} alt="Barracuda logo" />
+              </a>
+            </div>
+            <div className="partners__logo-c">
+              <a className='partners__link' href='https://www.coreview.com/' target='_blank' rel='noreferrer'>
+                <img className='partners__logo' src={coreviewLogo} alt="Coreview logo" />
+              </a>
+            </div>
           </div>
         </Partners>
       </Main>

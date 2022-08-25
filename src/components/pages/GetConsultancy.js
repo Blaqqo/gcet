@@ -29,7 +29,7 @@ const Header = styled.header`
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2em 35%;
+        gap: 2em min(414px, 35%);
     }
     
     .hero__heading {
@@ -48,6 +48,7 @@ const Header = styled.header`
 
     @media (min-width: 600px) {
         .hero {
+            align-items: flex-start;
             flex-direction: row;
         }
 

@@ -36,6 +36,7 @@ const SwiperSC = styled(Swiper)`
         gap: 2em;
     }
 
+
     .hero__heading {
         font-size: 2.75rem;
         font-weight: 800;
@@ -45,6 +46,7 @@ const SwiperSC = styled(Swiper)`
     .hero__p {
         font-size: 1.125rem;
         line-height: 1.5625;
+        max-width: 512px;
     }
 
     .hero__link-btns {

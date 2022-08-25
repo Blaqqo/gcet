@@ -1,6 +1,6 @@
 import { useEffect, useContext } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -109,7 +109,7 @@ const HamburgerMenu = () => {
                 <Nav>
                     <ul className='ham__list'>
                         <li className='ham__item'>
-                            <Link className='ham__link' to='/about'>About</Link>
+                            <NavLink className='ham__link' to='/about'>About</NavLink>
                         </li>
                         <li className='ham__item'>
                             <details className='ham__details'>
@@ -117,12 +117,12 @@ const HamburgerMenu = () => {
                                     <FontAwesomeIcon icon='fa-solid fa-caret-right' />Solutions
                                 </summary>
                                 <ul className='ham__submenu' aria-label='submenu'>
-                                    <li className='ham__subitem'><Link to='/solutions/eess' className='ham__sublink'>Enterprise Security Solutions &amp; Services (ESSS)</Link></li>
-                                    <li className='ham__subitem'><Link to='/solutions/iss' className='ham__sublink'>Infrastructure Solutions &amp; Services (ISS)</Link></li>
-                                    <li className='ham__subitem'><Link to='/solutions/bsms' className='ham__sublink'>Business Service Management Solutions</Link></li>
-                                    <li className='ham__subitem'><Link to='/solutions/ens' className='ham__sublink'>Enterprise Networking Solutions</Link></li>
-                                    <li className='ham__subitem'><Link to='/solutions/cms' className='ham__sublink'>Cloud and Mobile Solutions</Link></li>
-                                    <li className='ham__subitem'><Link to='/solutions/bes' className='ham__sublink'>Business Enterprise Software</Link></li>
+                                    <li className='ham__subitem'><NavLink to='/solutions/eess' className='ham__sublink'>Enterprise Security Solutions &amp; Services (ESSS)</NavLink></li>
+                                    <li className='ham__subitem'><NavLink to='/solutions/iss' className='ham__sublink'>Infrastructure Solutions &amp; Services (ISS)</NavLink></li>
+                                    <li className='ham__subitem'><NavLink to='/solutions/bsms' className='ham__sublink'>Business Service Management Solutions</NavLink></li>
+                                    <li className='ham__subitem'><NavLink to='/solutions/ens' className='ham__sublink'>Enterprise Networking Solutions</NavLink></li>
+                                    <li className='ham__subitem'><NavLink to='/solutions/cms' className='ham__sublink'>Cloud and Mobile Solutions</NavLink></li>
+                                    <li className='ham__subitem'><NavLink to='/solutions/bes' className='ham__sublink'>Business Enterprise Software</NavLink></li>
                                 </ul>
                             </details>
 
@@ -133,17 +133,17 @@ const HamburgerMenu = () => {
                                     <FontAwesomeIcon icon='fa-solid fa-caret-right' /> Services
                                 </summary>
                                 <ul className='ham__submenu' aria-label='submenu'>
-                                    <li className='ham__subitem'><Link to='/services/it-advisory' className='ham__sublink'>IT Advisory and Managed Services</Link></li>
-                                    <li className='ham__subitem'><Link to='/services/network-assessment' className='ham__sublink'>Network Assessment Services</Link></li>
+                                    <li className='ham__subitem'><NavLink to='/services/it-advisory' className='ham__sublink'>IT Advisory and Managed Services</NavLink></li>
+                                    <li className='ham__subitem'><NavLink to='/services/network-assessment' className='ham__sublink'>Network Assessment Services</NavLink></li>
                                 </ul>
                             </details>
 
                         </li>
                         <li className='ham__item'>
-                            <Link className='ham__link' to='/blog'>Blog</Link>
+                            <NavLink className='ham__link' to='/blog'>Blog</NavLink>
                         </li>
                         <li className='ham__item'>
-                            <Link className='ham__link' to='/contact'>Contact</Link>
+                            <NavLink className='ham__link' to='/contact'>Contact</NavLink>
                         </li>
                         <li className='ham__item'>
                             <a href='https://store.gcetng.com' className='ham__link' title='Store'><FontAwesomeIcon icon='fa-solid fa-cart-shopping' /></a>

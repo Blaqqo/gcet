@@ -142,31 +142,32 @@ const Blog = () => {
                 <Intro>
                     <h1 className='intro__heading'>Get Informed!</h1>
                     <p>Read the latest news here on our platform</p>
-                        <form className='intro__form'>
-                            <input className='intro__input' type="search" name="search" id="search" placeholder='Search for keywords or trends' required />
-                            <button className='intro__btn' type="submit">Search</button>
-                        </form>
+                    <form className='intro__form'>
+                        <input className='intro__input' type="search" name="search" id="search" placeholder='Search for keywords or trends' required />
+                        <button className='intro__btn' type="submit">Search</button>
+                    </form>
                 </Intro>
                 <ArticlesContainer>
                     <section className='articles'>
                         <Article image={articleImg1}
                             author='Paul Ducklin'
                             title='Laptop denial-of-service via music: the 1980s R&amp;B song with a CVE!'
-                            text="You've probably heard the old joke: “Humour in the public service? It’s no laughing matter!”
-                            
-                            But the thing with downbeat, blanket judgements of this sort is that it only takes a single counter-example to disprove"
                             link='https://nakedsecurity.sophos.com/2022/08/22/laptop-denial-of-service-via-music-the-1980s-rb-song-with-a-cve/'
                             date='2022-08-22'
-                        />
+                        >
+                            <p>You've probably heard the old joke: “Humour in the public service? It's no laughing matter!”</p>
+                            <p>But the thing with downbeat, blanket judgements of this sort is that it only takes a single counter-example to disprove"</p>
+                        </Article>
+
                         <Article image={articleImg2}
                             author='Paul Ducklin'
                             title='Apple patches double zero-day in browser and kernel - update now!'
-                            text="Apple just pushed out an emergency update for two zero-day bugs that are apparently actively being exploited.
-
-                            There's a remote code execution hole (RCE) dubbed CVE-2022-32893 in Apple's HTML rendering software (WebKit), by means of which a booby trapped web page can trick iPhones, iPads and Macs into running unauthorised and untrusted software code"
                             link='https://nakedsecurity.sophos.com/2022/08/18/apple-patches-double-zero-day-in-browser-and-kernel-update-now/'
                             date='2022-08-18'
-                        />
+                        >
+                            <p>Apple just pushed out an emergency update for two zero-day bugs that are apparently actively being exploited.</p>
+                            <p>There's a remote code execution hole (RCE) dubbed CVE-2022-32893 in Apple's HTML rendering software (WebKit), by means of which a booby trapped web page can trick iPhones, iPads and Macs into running unauthorised and untrusted software code</p>
+                        </Article>
                     </section>
                     <aside className='aside'>
                         <SideArticle

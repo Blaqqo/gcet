@@ -38,26 +38,34 @@ const ArticleSC = styled.article`
 
     .article__text {
         display: -webkit-box;
-        -webkit-line-clamp: 4;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        > p:last-child::after {
+            content: '...';
+        }
     }
 
     .article__link {
         color: inherit;
+        display: block;
+        margin: .5em 0;
     }
 `;
 
 const ReadMoreLink = styled.a`
-    background: transparent;
-    border: none;
     color: ${({ theme }) => theme.colors.lightBlue};
-    display: block;
     font-weight: 600;
+    display: block;
     margin: .5em 0;
 `;
 
-const Article = ({ image, title, author, link, text, date }) => {
+const Article = ({ children, image, title, author, link, date }) => {
 
     return (
         <ArticleSC>
@@ -69,9 +77,9 @@ const Article = ({ image, title, author, link, text, date }) => {
                         <time className='article__time' dateTime={date}>{new Date(date).toDateString()}</time>
                     </div>
                     <h2 className='article__heading'><a className='article__link' href={link} target='_blank' rel="noreferrer">{title}</a></h2>
-                    <p className='article__text'>
-                        {text}
-                    </p>
+                    <div className='article__text'>
+                        {children}
+                    </div>
                     <ReadMoreLink href={link} target='_blank' rel='noreferrer'>Read more</ReadMoreLink>
                 </figcaption>
             </figure>

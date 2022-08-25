@@ -5,6 +5,11 @@ import { convertHexToRgba } from '../../utils/convertHexToRgba';
 const Article = styled.article`
      line-height: 1.4;
 
+     .article__img {
+        width: 100px;
+        height: 107px;
+     }
+
      .article__fig {
         display: flex;
         flex-direction: column;
@@ -40,11 +45,6 @@ const Article = styled.article`
         font-size: 1.125rem;
         font-weight: 600;
         margin: .25em 0;
-
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
     }
 
     .article__link {
@@ -62,7 +62,7 @@ const SideArticle = ({ image, title, author, link, date }) => {
     return (
         <Article>
             <figure className='article__fig'>
-                <img src={image} alt="" />
+                <img className='article__img' src={image} alt="" />
                 <figcaption>
                     <div className="article__info">
                         <address className='article__author'>{author}</address>
