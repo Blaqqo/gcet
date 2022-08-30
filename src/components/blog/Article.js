@@ -17,7 +17,7 @@ const ArticleSC = styled.article`
         background: ${({ theme }) => theme.colors.mediumBlue};
         color: #FFFFFC;
         font-size: .875em;
-        font-weight: 650;
+        font-weight: 600;
         border-radius: .1875em;
         max-width: fit-content;
         padding: .25em 1em;
